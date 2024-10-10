@@ -1,4 +1,5 @@
 #include <stdlib.h>
+
 typedef struct vl {
     void** data;
     size_t capacity;
