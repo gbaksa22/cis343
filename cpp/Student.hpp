@@ -5,6 +5,7 @@ class Student
     public:
         void printStudent();
         std::string getStudent();
+        // :: = namespace (where the function lives)
         
     private:
         std::string name;
