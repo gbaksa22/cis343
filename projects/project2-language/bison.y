@@ -2,7 +2,7 @@
 #include <stdio.h>
  
 void yyerror(const char* s);
- 
+    double net_income = 0.0f;
 %}
  
  
@@ -17,7 +17,7 @@ void yyerror(const char* s);
  
 %%
 
-program: NEW finance_list DONE          { printf("Entry complete.\n"); }
+program: NEW finance_list DONE      { printf("%f\nNet Income:\n", net_income); }
 
 finance_list: entry finance_list
             | entry
@@ -26,8 +26,8 @@ finance_list: entry finance_list
 entry: NEW sign amount category date description DONE
 ;
 
-sign: INCOME
-    | EXPENSE
+sign: INCOME                        {net_income += $3;}
+    | EXPENSE                       {net_income -= $3;}
 ;
 
 amount: AMOUNT
@@ -52,3 +52,4 @@ void yyerror(const char* s){
 int main(int argc, char** argv){
      yyparse();
 }
+
