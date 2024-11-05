@@ -132,3 +132,34 @@ Throughout the game, players can engage in side quests to collect items for vari
 - **Treehouse Robot**: A mechanical companion that assists with tasks.
 - **Rollercoaster**: A fun ride built by Phineas and Ferb.
 - **Jetpack**: Allows vertical exploration once repaired.
+
+## Player Actions with Shortcuts
+
+### Navigation Commands
+- **go <location>** (e.g., `go backyard`)
+- **go <direction>** (e.g., `go north`)
+- **g <location>** (shortcut for `go <location>`)
+
+### Vehicle Commands
+- **drive** or **d** (drive the car)
+- **fly** or **f** (fly using the jetpack)
+- **climb** or **c** (climb into the treehouse)
+- **ride** or **r** (ride the roller coaster)
+- **repair <vehicle>** or **rp <vehicle>** (repair a broken vehicle)
+
+### Interaction Commands
+- **look** or **l** (look around)
+- **talk <npc>** or **t <npc>** (talk to an NPC)
+- **take <item>** or **k <item>** (pick up an item)
+- **use <item>** or **u <item>** (use an item from inventory)
+- **give <item> <npc>** or **v <item> <npc>** (give an item to an NPC)
+- **inv** (check inventory)
+
+### Help and Information Commands
+- **help** or **?** (display valid commands)
+- **status** or **s** (show current quest status)
+
+### Miscellaneous Commands
+- **map** or **m** (display a simple map)
+- **quit** or **q** (exit the game)
+- **examine <item>** or **x <item>** (get details about an item)
