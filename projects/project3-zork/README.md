@@ -15,8 +15,6 @@
 - **Park with Isabella and the Fireside Girls**: Isabella and the Fireside Girls are having a meeting. They may offer some assistance or a unique item if you interact with them.
 - **Doofenshmirtz Evil Incorporated**: The final destination. Doofenshmirtz has captured Perry (sans hat). Bring Perry’s hat here to complete the game and foil Doofenshmirtz's plan.
 
----
-
 ## NPCs
 
 - **Candace**: In her room, constantly on the phone with Jeremy, trying to catch Phineas and Ferb in action.
@@ -30,7 +28,6 @@
 - **Jeremy**: Chill and friendly, possibly providing a needed item if you visit his house.
 - **Isabella**: At the Park with the Fireside Girls, willing to help you complete certain tasks.
 
----
 
 ## Items
 
