@@ -124,26 +124,34 @@ Located in **Perry’s Secret Lair**, this jetpack requires repairs and fuel to 
 ### Flying Car
 A futuristic car designed by **Phineas**. Once completed, it can be used to fly directly to **Doofenshmirtz Evil Incorporated** to stop his plans.
 
-Got it! Here's the updated list of **player actions** with the **map** command removed and the **look** command taking its place for showing locations:
+## Player Actions
 
-## Player Actions:
+### go <direction/location> or g <direction/location>
+Move the player to the specified direction or location. The game will interpret it as either a direction (e.g., North, East) or a named location (e.g., Phineas's House). If it’s an invalid input, return an "invalid command" message.
 
-- **go <direction/location>** or **g <direction/location>**: Move the player to the specified direction or location. The game will interpret it as either a direction (e.g., North, East) or a named location (e.g., Phineas's House). If it’s an invalid input, return an "invalid command" message.
+### build <vehicle> or b <vehicle>
+If the necessary items are in your inventory, this command will trigger the construction of the vehicle (e.g., "build Rollercoaster" or "b Rollercoaster").
 
-- **build <vehicle>** or **b <vehicle>**: If the necessary items are in your inventory, this command will trigger the construction of the vehicle (e.g., "build Rollercoaster" or "b Rollercoaster").
+### look or l
+Show a list of items and NPCs in the current room or location. If the player has a vehicle, show all unlocked locations they can travel to as well as adjacent locations.
 
-- **look** or **l**: Show a list of items and NPCs in the current room or location. If the player has a vehicle, show all unlocked locations they can travel to as well as adjacent locations.
+### talk <npc> or t <npc>
+Start a conversation with the specified NPC in the current room or location.
 
-- **talk <npc>** or **t <npc>**: Start a conversation with the specified NPC in the current room or location.
+### pick up <item> or p <item>
+Pick up the specified item from the current room or location and add it to your inventory.
 
-- **pick up <item>** or **p <item>**: Pick up the specified item from the current room or location and add it to your inventory.
+### inventory or i
+View the items currently in your inventory.
 
-- **inventory** or **i**: View the items currently in your inventory.
+### examine <item/npc/location> or x <item/npc/location>
+Get a detailed description or information about the specified item, NPC, or location.
 
-- **examine <item/npc/location>** or **x <item/npc/location>**: Get a detailed description or information about the specified item, NPC, or location.
+### help or ?
+View a list of valid commands and a short description of what each does.
 
-- **help** or **?**: View a list of valid commands and a short description of what each does.
+### give <item> or g <item>
+Give the specified item from your inventory to an NPC.
 
-- **give <item>** or **g <item>**: Give the specified item from your inventory to an NPC.
-
-- **drop <item>** or **d <item>**: Discard the specified item from your inventory.
+### drop <item> or d <item>
+Discard the specified item from your inventory.
