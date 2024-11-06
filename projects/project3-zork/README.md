@@ -4,7 +4,7 @@
 The main quest is to help Perry rebuild a vehicle capable of reaching Doofenshmirtz Evil Incorporated, where Doofenshmirtz is up to his latest scheme. The player must gather parts and tools scattered throughout various locations, assisting **Phineas** and **Ferb** in constructing the ultimate vehicle. Once completed, the player will travel with Perry to Doofenshmirtz’s lair, where they’ll talk to Doofenshmirtz, locate his latest *-inator*, and press the self-destruct button to put an end to his plan.
 
 ## Side Quests
-Throughout the game, players can engage in side quests to collect items for various NPCs, adding depth and exploration to the adventure:
+Side quests in the game involve helping various NPCs by finding and returning specific items they need. Each character has a unique item they're looking for, and returning it to them completes their side quest. Completing these side quests will prompt a message confirming the progress with “n/4 side quests completed!” and may offer hints or additional help for the main quest. The side quests provide extra interactions with **Baljeet**, **Buford**, **Jeremy**, and **Isabella** while exploring different locations.
 
 1. **Baljeet’s Quest**: Find the **rare book** from **Candace's Room**.
 2. **Buford’s Quest**: Retrieve **his favorite baseball** from the **Park**.
