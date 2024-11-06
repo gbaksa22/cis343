@@ -1,7 +1,7 @@
 # Phineas and Ferb Adventure Game README
 
 ## Main Quest
-In this adventure, your main objective is to retrieve Perry the Platypus’s hat, which is hidden in a random location. To accomplish this, you must navigate through various locations, interact with characters, and repair different vehicles. Once you have the hat, return it to Perry to foil Doofenshmirtz's evil plans!
+The main quest is to help Perry rebuild a vehicle capable of reaching Doofenshmirtz Evil Incorporated, where Doofenshmirtz is up to his latest scheme. The player must gather parts and tools scattered throughout various locations, assisting **Phineas** and **Ferb** in constructing the ultimate vehicle. Once completed, the player will travel with Perry to Doofenshmirtz’s lair, where they’ll talk to Doofenshmirtz, locate his latest *-inator*, and press the self-destruct button to put an end to his plan.
 
 ## Side Quests
 Throughout the game, players can engage in side quests to collect items for various NPCs, adding depth and exploration to the adventure:
