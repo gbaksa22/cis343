@@ -1,10 +1,10 @@
 # Phineas and Ferb Adventure Game README
 
 ## Main Quest
-In this adventure, your main objective is to retrieve Perry the Platypus’s hat, which is hidden in a random location. To accomplish this, you must navigate through various locations, interact with characters, and repair different vehicles. Once you have the hat, return it to Perry to foil Doofenshmirtz's evil plans!
+The main quest is to help Perry rebuild a vehicle capable of reaching Doofenshmirtz Evil Incorporated, where Doofenshmirtz is up to his latest scheme. The player must gather parts and tools scattered throughout various locations, assisting **Phineas** and **Ferb** in constructing the ultimate vehicle. Once completed, the player will travel with Perry to Doofenshmirtz’s lair, where they’ll talk to Doofenshmirtz, locate his latest *-inator*, and press the self-destruct button to put an end to his plan.
 
 ## Side Quests
-Throughout the game, players can engage in side quests to collect items for various NPCs, adding depth and exploration to the adventure:
+Side quests in the game involve helping various NPCs by finding and returning specific items they need. Each character has a unique item they're looking for, and returning it to them completes their side quest. Completing these side quests will prompt a message confirming the progress with “n/4 side quests completed!” and may offer hints or additional help for the main quest. The side quests provide extra interactions with **Baljeet**, **Buford**, **Jeremy**, and **Isabella** while exploring different locations.
 
 1. **Baljeet’s Quest**: Find the **rare book** from **Candace's Room**.
 2. **Buford’s Quest**: Retrieve **his favorite baseball** from the **Park**.
@@ -13,153 +13,145 @@ Throughout the game, players can engage in side quests to collect items for vari
 
 ## Locations
 
-### 1. Phineas and Ferb’s House
-- **Description**: A vibrant home where Phineas and Ferb work on their grand ideas, filled with various rooms to explore.
+### Phineas and Ferb’s House
+A lively home where **Phineas** and **Ferb** dream up their latest inventions. **Candace** is often trying to catch her brothers in action, while **Linda (Mom)** busies herself in the kitchen, and **Lawrence (Dad)** works on his hobbies in the garage. It’s filled with rooms that hide essential items for building Perry’s vehicle.
 
-#### NPCs
-- **Candace**: On the phone with Jeremy, trying to catch her brothers.
-- **Linda (Mom)**: Busy cooking in the kitchen.
-- **Lawrence (Dad)**: Working on a hobby project in the garage.
-- **Phineas**: Enthusiastic about building a rollercoaster in the backyard.
-- **Ferb**: Quietly constructing a robot in the treehouse.
+### Secret Lair
+**Perry’s** hidden headquarters, where gadgets and intel about **Doofenshmirtz** are stored. **Carl** is here, providing mission briefings and helpful information about Perry’s next steps. This lair is filled with high-tech tools and is the starting point of Perry’s mission.
 
-#### Items
-- **Wrench**: Located in the kitchen; necessary for vehicle repairs.
-- **Fuel**: Found in the backyard at the rollercoaster site; essential for the garage car.
-- **Blueprints**: Located in Candace's Room; needed to complete the treehouse robot.
-- **Bolts**: Located in the garage; useful for securing the treehouse robot and rollercoaster.
+### Baljeet’s House
+The home of **Baljeet**, who is always surrounded by his latest science projects and gadgets. Baljeet may need help finding something he misplaced, and he’s always ready to share tips or knowledge about building.
 
-#### Vehicles
-- **Garage Car**: A classic car needing repairs to explore other locations.
-- **Treehouse Robot**: A robot built by Ferb; requires blueprints and bolts to function.
-- **Rollercoaster**: A grand structure under construction that players can ride once completed.
-- **Jetpack**: Located in the secret lair, needs repairs to reach new heights.
+### Buford’s House
+A house full of sports memorabilia and interesting finds. **Buford** lives here and, despite his gruff demeanor, he might ask for help retrieving a lost item he values. Buford’s home is filled with surprises and a few essential resources.
 
+### Jeremy’s House
+A cozy place where **Jeremy** often hangs out. Jeremy, always friendly and relaxed, might have something valuable to lend if players help him recover a cherished item.
 
-### 2. Secret Lair
-- **Description**: Perry’s hidden base, filled with gadgets and intel about Doofenshmirtz’s evil schemes.
+### Park with Isabella and the Fireside Girls
+A bustling park where **Isabella** and the Fireside Girls gather, planning their own activities and projects. Isabella may have something she needs help with, and players can find useful hints and items by exploring this lively area.
 
-#### NPCs
-- **Carl**: Provides mission briefings and tips on the game.
+### Doofenshmirtz Evil Incorporated
+The lair of the infamous **Dr. Doofenshmirtz**, filled with quirky inventions, traps, and, of course, his latest “inator.” It’s Perry’s ultimate destination, where he’ll need to find a way to stop Doofenshmirtz by pressing the self-destruct button on the inator and putting an end to his schemes.
 
-#### Items
-- **Battery Pack**: Needed to power the jetpack, located in the garage.
-- **Jetpack Fuel**: Located in Candace's Room; essential for operating the jetpack.
+## NPCs
 
-#### Vehicles
-- **Jetpack**: Allows access to high places once repaired.
+### Phineas
+A creative and enthusiastic young inventor, always ready for a new project. Phineas is excited to build something grand and helps players collect items needed for the vehicle.
 
+### Ferb
+The quiet, resourceful half of the inventive duo. Ferb doesn’t say much, but he’s focused and skilled, especially when it comes to mechanical work and repairs.
 
-### 3. Baljeet’s House
-- **Description**: Baljeet’s home, filled with science projects and gadgets.
+### Candace
+Phineas and Ferb’s older sister, determined to catch her brothers in the act of building their latest invention. Candace is often distracted by calls with **Jeremy** but occasionally offers clues about item locations.
 
-#### NPCs
-- **Baljeet**: Offers help with gadgets and tips on puzzles.
+### Linda (Mom)
+Linda is usually cooking or tidying up around the house. She’s largely oblivious to her sons’ creations but is kind and may share hints with players if asked.
 
-#### Items
-- **Rare Book**: A special book that Baljeet lent to Candace.
+### Lawrence (Dad)
+A hobbyist who spends his time in the garage working on his own projects. Lawrence occasionally has spare parts or tools that might be useful for Perry’s vehicle repairs.
 
+### Perry the Platypus
+A secret agent posing as Phineas and Ferb’s pet platypus. Perry embarks on a mission to stop **Doofenshmirtz** and gathers the needed materials to help the player construct a vehicle capable of reaching the villain’s lair.
 
-### 4. Buford’s House
-- **Description**: Buford’s home, filled with sports memorabilia and a few surprises.
+### Carl
+Perry’s colleague in the Secret Lair who provides mission briefings and updates. Carl offers hints and encourages players throughout their quest, especially regarding the technology Perry needs.
 
-#### NPCs
-- **Buford**: Gruff but loyal friend; challenges players with tasks.
+### Baljeet
+A studious, science-minded friend of Phineas and Ferb. Baljeet is eager to help and may have useful gadgets or knowledge about item functionality, but he’ll need help retrieving something special first.
 
-#### Items
-- **Favorite Baseball**: A treasured item that Buford needs.
+### Buford
+Gruff and strong, Buford enjoys a challenge. Although he can seem intimidating, he’s helpful and has an item he values, which players can return to him for useful hints or materials.
 
+### Jeremy
+Candace’s boyfriend and a generally laid-back character. Jeremy appreciates help finding a personal item and, in return, may share something valuable for the mission.
 
-### 5. Jeremy’s House
-- **Description**: A cozy house where Jeremy hangs out.
+### Isabella
+A motivated, resourceful member of the Fireside Girls who has a soft spot for Phineas. Isabella loves to help and will give the player guidance or useful supplies if they lend a hand with her project.
 
-#### NPCs
-- **Jeremy**: Chill and friendly; might have items to share.
+### Dr. Doofenshmirtz
+An eccentric and often bumbling evil scientist, **Doofenshmirtz** creates elaborate devices (or “inators”) to fulfill his bizarre schemes. He is the final obstacle for Perry, who must figure out how to stop him by pressing the self-destruct button on the inator.
 
-#### Items
-- **Old Mixtape**: An item Jeremy needs to recover.
+## Items
 
+### Wrench
+A sturdy tool found in the kitchen at **Phineas and Ferb’s House**. Essential for repairing damaged vehicles and equipment, especially helpful when working on the car in the garage.
 
-### 6. Park with Isabella and the Fireside Girls
-- **Description**: A lively park where Isabella and her friends often gather.
+### Fuel
+A canister of fuel located near the rollercoaster construction site in the backyard. Required to get the **Garage Car** running and ready for travel.
 
-#### NPCs
-- **Isabella**: Eager to help with gathering supplies.
+### Blueprints
+Detailed plans found in **Candace’s Room**. These blueprints provide the design necessary to complete **Ferb’s Treehouse Robot** and assist with other inventions.
 
-#### Items
-- **Flowers**: Needed for Isabella's project.
+### Bolts
+Scattered in the garage at **Phineas and Ferb’s House**, these bolts are crucial for securing parts of the **Treehouse Robot** and ensuring the rollercoaster is safe for use.
 
+### Battery Pack
+Found in the **Secret Lair**, this powerful battery is required to operate the **Jetpack** and power other high-tech gadgets essential for the mission.
 
-### 7. Doofenshmirtz Evil Incorporated
-- **Description**: The lair of the infamous Doofenshmirtz, filled with quirky inventions and traps.
+### Jetpack Fuel
+A special fuel located in **Candace’s Room** needed for the **Jetpack** to reach Doofenshmirtz’s lair.
 
-#### NPCs
-- **Doofenshmirtz**: The main antagonist, trying to execute his latest evil plan.
+### Rare Book
+A special book borrowed by **Candace** from **Baljeet**. Returning this item to **Baljeet** helps gain his assistance and valuable knowledge about gadgets.
 
+### Favorite Baseball
+A well-loved baseball belonging to **Buford**. He’ll be grateful if it’s returned, and might share a hint or materials in exchange.
 
-## Summary of NPCs
+### Old Mixtape
+An old mixtape with sentimental value to **Jeremy**. Returning it to him earns his support and could lead to an important clue.
 
-- **Candace**: Always on the lookout for her brothers' antics.
-- **Linda (Mom)**: Caring and busy with family life.
-- **Lawrence (Dad)**: Engaged in hobbies; offers advice.
-- **Phineas**: Creative and optimistic, always dreaming big.
-- **Ferb**: Silent but brilliant, building intricate projects.
-- **Carl**: Mission control for Perry’s adventures.
-- **Baljeet**: The brainy friend with scientific insight.
-- **Buford**: Tough exterior but a loyal friend.
-- **Jeremy**: Laid-back and helpful.
-- **Isabella**: Resourceful and determined to help others.
+### Flowers
+A bouquet of flowers needed by **Isabella** for a Fireside Girls project. Bringing these to her will secure her help with supplies and guidance.
 
+### Self-Destruct Button
+The final piece required to stop **Doofenshmirtz**’s scheme. Found on the main control panel of his latest “inator,” pressing this button will end his plan and complete the quest.
 
-## Summary of Items
+## Vehicles
 
-- **Wrench**: Tool for vehicle repairs.
-- **Fuel**: Power source for the garage car.
-- **Blueprints**: Plans for the treehouse robot.
-- **Bolts**: Essential for building and securing projects.
-- **Battery Pack**: Powers the jetpack.
-- **Jetpack Fuel**: Necessary for jetpack operation.
-- **Rare Book**: Needed by Baljeet.
-- **Favorite Baseball**: Needed by Buford.
-- **Old Mixtape**: Needed by Jeremy.
-- **Flowers**: Needed for Isabella’s project.
+### Garage Car
+A classic car located in **Phineas and Ferb’s Garage**. After repairs, it will be used as one of the available vehicles to travel to **Doofenshmirtz Evil Incorporated**.
 
----
+### Treehouse Robot
+A large robot built by **Ferb** in the treehouse. Once fully constructed and equipped with the necessary parts, it becomes one of the vehicles that can take the player to **Doofenshmirtz Evil Incorporated**.
 
-## Summary of Vehicles
+### Rollercoaster
+A thrilling rollercoaster being built in the backyard of **Phineas and Ferb’s House**. Once finished, it serves as another transportation method to travel to **Doofenshmirtz Evil Incorporated**.
 
-- **Garage Car**: Basic vehicle needing repairs to travel.
-- **Treehouse Robot**: A mechanical companion that assists with tasks.
-- **Rollercoaster**: A fun ride built by Phineas and Ferb.
-- **Jetpack**: Allows vertical exploration once repaired.
+### Jetpack
+Located in **Perry’s Secret Lair**, this jetpack requires repairs and fuel to function. Once ready, it will allow the player to travel directly to **Doofenshmirtz Evil Incorporated**.
 
-## Player Actions with Shortcuts
+### Flying Car
+A futuristic car designed by **Phineas**. Once completed, it can be used to fly directly to **Doofenshmirtz Evil Incorporated** to stop his plans.
 
-### Navigation Commands
-- **go <location>** (e.g., `go backyard`)
-- **go <direction>** (e.g., `go north`)
-- **g <location>** (shortcut for `go <location>`)
+## Player Actions
 
-### Vehicle Commands
-- **drive** or **d** (drive the car)
-- **fly** or **f** (fly using the jetpack)
-- **climb** or **c** (climb into the treehouse)
-- **ride** or **r** (ride the roller coaster)
-- **repair <vehicle>** or **rp <vehicle>** (repair a broken vehicle)
+### go <direction/location> or g <direction/location>
+Move the player to the specified direction or location. The game will interpret it as either a direction (e.g., North, East) or a named location (e.g., Phineas's House). If it’s an invalid input, return an "invalid command" message.
 
-### Interaction Commands
-- **look** or **l** (look around)
-- **talk <npc>** or **t <npc>** (talk to an NPC)
-- **take <item>** or **k <item>** (pick up an item)
-- **use <item>** or **u <item>** (use an item from inventory)
-- **give <item> <npc>** or **v <item> <npc>** (give an item to an NPC)
-- **inv** (check inventory)
+### build <vehicle> or b <vehicle>
+If the necessary items are in your inventory, this command will trigger the construction of the vehicle (e.g., "build Rollercoaster" or "b Rollercoaster").
 
-### Help and Information Commands
-- **help** or **?** (display valid commands)
-- **status** or **s** (show current quest status)
+### look or l
+Show a list of items and NPCs in the current room or location. If the player has a vehicle, show all unlocked locations they can travel to as well as adjacent locations.
 
-### Miscellaneous Commands
-- **map** or **m** (display a simple map)
-- **quit** or **q** (exit the game)
-- **examine <item>** or **x <item>** (get details about an item)
+### talk <npc> or t <npc>
+Start a conversation with the specified NPC in the current room or location.
+
+### pick up <item> or p <item>
+Pick up the specified item from the current room or location and add it to your inventory.
+
+### inventory or i
+View the items currently in your inventory.
+
+### examine <item/npc/location> or x <item/npc/location>
+Get a detailed description or information about the specified item, NPC, or location.
+
+### help or ?
+View a list of valid commands and a short description of what each does.
+
+### give <item> or g <item>
+Give the specified item from your inventory to an NPC.
+
+### drop <item> or d <item>
+Discard the specified item from your inventory.
