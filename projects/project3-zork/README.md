@@ -13,89 +13,26 @@ Side quests in the game involve helping various NPCs by finding and returning sp
 
 ## Locations
 
-### 1. Phineas and Ferb’s House
-- **Description**: A vibrant home where Phineas and Ferb work on their grand ideas, filled with various rooms to explore.
+### Phineas and Ferb’s House
+A lively home where **Phineas** and **Ferb** dream up their latest inventions. **Candace** is often trying to catch her brothers in action, while **Linda (Mom)** busies herself in the kitchen, and **Lawrence (Dad)** works on his hobbies in the garage. It’s filled with rooms that hide essential items for building Perry’s vehicle.
 
-#### NPCs
-- **Candace**: On the phone with Jeremy, trying to catch her brothers.
-- **Linda (Mom)**: Busy cooking in the kitchen.
-- **Lawrence (Dad)**: Working on a hobby project in the garage.
-- **Phineas**: Enthusiastic about building a rollercoaster in the backyard.
-- **Ferb**: Quietly constructing a robot in the treehouse.
+### Secret Lair
+**Perry’s** hidden headquarters, where gadgets and intel about **Doofenshmirtz** are stored. **Carl** is here, providing mission briefings and helpful information about Perry’s next steps. This lair is filled with high-tech tools and is the starting point of Perry’s mission.
 
-#### Items
-- **Wrench**: Located in the kitchen; necessary for vehicle repairs.
-- **Fuel**: Found in the backyard at the rollercoaster site; essential for the garage car.
-- **Blueprints**: Located in Candace's Room; needed to complete the treehouse robot.
-- **Bolts**: Located in the garage; useful for securing the treehouse robot and rollercoaster.
+### Baljeet’s House
+The home of **Baljeet**, who is always surrounded by his latest science projects and gadgets. Baljeet may need help finding something he misplaced, and he’s always ready to share tips or knowledge about building.
 
-#### Vehicles
-- **Garage Car**: A classic car needing repairs to explore other locations.
-- **Treehouse Robot**: A robot built by Ferb; requires blueprints and bolts to function.
-- **Rollercoaster**: A grand structure under construction that players can ride once completed.
-- **Jetpack**: Located in the secret lair, needs repairs to reach new heights.
+### Buford’s House
+A house full of sports memorabilia and interesting finds. **Buford** lives here and, despite his gruff demeanor, he might ask for help retrieving a lost item he values. Buford’s home is filled with surprises and a few essential resources.
 
+### Jeremy’s House
+A cozy place where **Jeremy** often hangs out. Jeremy, always friendly and relaxed, might have something valuable to lend if players help him recover a cherished item.
 
-### 2. Secret Lair
-- **Description**: Perry’s hidden base, filled with gadgets and intel about Doofenshmirtz’s evil schemes.
+### Park with Isabella and the Fireside Girls
+A bustling park where **Isabella** and the Fireside Girls gather, planning their own activities and projects. Isabella may have something she needs help with, and players can find useful hints and items by exploring this lively area.
 
-#### NPCs
-- **Carl**: Provides mission briefings and tips on the game.
-
-#### Items
-- **Battery Pack**: Needed to power the jetpack, located in the garage.
-- **Jetpack Fuel**: Located in Candace's Room; essential for operating the jetpack.
-
-#### Vehicles
-- **Jetpack**: Allows access to high places once repaired.
-
-
-### 3. Baljeet’s House
-- **Description**: Baljeet’s home, filled with science projects and gadgets.
-
-#### NPCs
-- **Baljeet**: Offers help with gadgets and tips on puzzles.
-
-#### Items
-- **Rare Book**: A special book that Baljeet lent to Candace.
-
-
-### 4. Buford’s House
-- **Description**: Buford’s home, filled with sports memorabilia and a few surprises.
-
-#### NPCs
-- **Buford**: Gruff but loyal friend; challenges players with tasks.
-
-#### Items
-- **Favorite Baseball**: A treasured item that Buford needs.
-
-
-### 5. Jeremy’s House
-- **Description**: A cozy house where Jeremy hangs out.
-
-#### NPCs
-- **Jeremy**: Chill and friendly; might have items to share.
-
-#### Items
-- **Old Mixtape**: An item Jeremy needs to recover.
-
-
-### 6. Park with Isabella and the Fireside Girls
-- **Description**: A lively park where Isabella and her friends often gather.
-
-#### NPCs
-- **Isabella**: Eager to help with gathering supplies.
-
-#### Items
-- **Flowers**: Needed for Isabella's project.
-
-
-### 7. Doofenshmirtz Evil Incorporated
-- **Description**: The lair of the infamous Doofenshmirtz, filled with quirky inventions and traps.
-
-#### NPCs
-- **Doofenshmirtz**: The main antagonist, trying to execute his latest evil plan.
-
+### Doofenshmirtz Evil Incorporated
+The lair of the infamous **Dr. Doofenshmirtz**, filled with quirky inventions, traps, and, of course, his latest “inator.” It’s Perry’s ultimate destination, where he’ll need to find a way to stop Doofenshmirtz by pressing the self-destruct button on the inator and putting an end to his schemes.
 
 ## Summary of NPCs
 
