@@ -1,21 +1,26 @@
+// AudioManager.hpp
+
 #ifndef AUDIOMANAGER_HPP
 #define AUDIOMANAGER_HPP
 
-#include <SFML/Audio.hpp>
+#include <SDL2/SDL.h>
 #include <string>
-#include <vector>
 
 class AudioManager {
 public:
-    // Function to play random audio for an NPC
-    void playAudioForNPC(const std::string& npcName);
+    AudioManager();
+    ~AudioManager();
 
-    // Function to play random audio for a location
-    void playAudioForLocation(const std::string& location);
+    bool initialize();
+    bool loadWAV(const std::string& filename);
+    void play();
+    void stop();
+    void cleanup();
 
 private:
-    // Helper function to load all audio files from a directory and play one
-    void playRandomAudioFromDir(const std::string& directory);
+    SDL_AudioSpec wavSpec;
+    Uint8* wavBuffer;
+    Uint32 wavLength;
 };
 
 #endif // AUDIOMANAGER_HPP
