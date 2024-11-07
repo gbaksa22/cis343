@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "./projects/project3-zork/main.cpp",
+                "./projects/project3-zork/AudioManager.cpp",
+                "-I./projects/project3-zork",
+                "-o",
+                "./projects/project3-zork/main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
