@@ -1,26 +1,30 @@
-// AudioManager.hpp
-
 #ifndef AUDIOMANAGER_HPP
 #define AUDIOMANAGER_HPP
 
-#include <SDL2/SDL.h>
+#include <vector>
 #include <string>
+#include "miniaudio.h"  // Ensure miniaudio is included correctly
 
 class AudioManager {
 public:
-    AudioManager();
-    ~AudioManager();
+    // Constructor takes a vector of audio file paths
+    AudioManager(const std::vector<std::string>& audioPaths);
 
-    bool initialize();
-    bool loadWAV(const std::string& filename);
-    void play();
-    void stop();
+    // Initializes the audio engine
+    bool init();
+
+    // Plays a specific audio file
+    void playSound(const std::string& soundPath);
+
+    // Shuffles and plays a random audio file
+    void playRandomSound();
+
+    // Cleans up the audio engine
     void cleanup();
 
 private:
-    SDL_AudioSpec wavSpec;
-    Uint8* wavBuffer;
-    Uint32 wavLength;
+    ma_engine engine;
+    std::vector<std::string> audioFiles;
 };
 
 #endif // AUDIOMANAGER_HPP

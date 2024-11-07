@@ -1,25 +1,28 @@
 #include "AudioManager.hpp"
+#include <vector>
+#include <string>
 #include <iostream>
 
 int main() {
-    AudioManager audioManager;
+    std::vector<std::string> npcSounds = {
+        "./audio/doofenshmirtz/doofenshmirtz-evil-incorporated-jingle.wav",
+        "./audio/doofenshmirtz/getting-warmer.wav",
+        "./audio/doofenshmirtz/perry-the-platypus.wav",
+        "./audio/doofenshmirtz/red-button.wav"
+    };
 
-    if (!audioManager.initialize()) {
-        std::cerr << "Failed to initialize audio manager." << std::endl;
+    AudioManager npcAudioManager(npcSounds);
+
+    if (!npcAudioManager.init()) {
         return -1;
     }
 
-    if (!audioManager.loadWAV("theme-song.wav")) {
-        std::cerr << "Failed to load audio file." << std::endl;
-        return -1;
-    }
+    npcAudioManager.playRandomSound();
 
-    audioManager.play();
+    std::cout << "Press Enter to quit...";
+    std::cin.get();
 
-    // Wait for the duration of the audio
-    SDL_Delay(3000); // Adjust based on audio length or add a function to calculate it
-
-    audioManager.cleanup();
+    npcAudioManager.cleanup();
 
     return 0;
 }

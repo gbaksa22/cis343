@@ -1,33 +1,42 @@
 #define MINIAUDIO_IMPLEMENTATION
-#include "miniaudio.h"
+#include "AudioManager.hpp"
+#include <algorithm>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
-#include <stdio.h>
-
-int main(int argc, char** argv)
+AudioManager::AudioManager(const std::vector<std::string>& audioPaths)
+    : audioFiles(audioPaths)
 {
-    ma_result result;
-    ma_engine engine;
-
-    if (argc < 2) {
-        printf("No input file.");
-        return -1;
-    }
-
-    result = ma_engine_init(NULL, &engine);
-    if (result != MA_SUCCESS) {
-        printf("Failed to initialize audio engine.");
-        return -1;
-    }
-
-    ma_engine_play_sound(&engine, "theme-song.wav", NULL);
-
-    printf("Press Enter to quit...");
-    getchar();
-
-    ma_engine_uninit(&engine);
-
-    return 0;
+    // Seed the random number generator
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
+bool AudioManager::init() {
+    if (ma_engine_init(NULL, &engine) != MA_SUCCESS) {
+        std::cerr << "Failed to initialize audio engine." << std::endl;
+        return false;
+    }
+    return true;
+}
 
-//vector of different string paths and pick a random index of the vector
+void AudioManager::playSound(const std::string& soundPath) {
+    // Play the specified sound
+    if (ma_engine_play_sound(&engine, soundPath.c_str(), NULL) != MA_SUCCESS) {
+        std::cerr << "Failed to play sound: " << soundPath << std::endl;
+    } else {
+        std::cout << "Playing: " << soundPath << std::endl;
+    }
+}
+
+void AudioManager::playRandomSound() {
+    // Shuffle and select a random sound
+    std::random_shuffle(audioFiles.begin(), audioFiles.end());
+    if (!audioFiles.empty()) {
+        playSound(audioFiles[0]);
+    }
+}
+
+void AudioManager::cleanup() {
+    ma_engine_uninit(&engine);
+}
