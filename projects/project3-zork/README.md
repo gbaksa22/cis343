@@ -13,8 +13,11 @@ Side quests in the game involve helping various NPCs by finding and returning sp
 
 ## Locations
 
-### Phineas and Ferb’s House
-A lively home where **Phineas** and **Ferb** dream up their latest inventions. **Candace** is often trying to catch her brothers in action, while **Linda (Mom)** busies herself in the kitchen, and **Lawrence (Dad)** works on his hobbies in the garage. It’s filled with rooms that hide essential items for building Perry’s vehicle.
+### Flynn-Fletcher House
+A central space where **Candace** keeps an eye out, hoping to catch her brothers in action. Key items for Perry’s mission are found here.
+
+### Backyard Workshop
+The outdoor area where **Phineas** and **Ferb** create their inventions and bring ideas to life.
 
 ### Secret Lair
 **Perry’s** hidden headquarters, where gadgets and intel about **Doofenshmirtz** are stored. **Carl** is here, providing mission briefings and helpful information about Perry’s next steps. This lair is filled with high-tech tools and is the starting point of Perry’s mission.
@@ -43,13 +46,7 @@ A creative and enthusiastic young inventor, always ready for a new project. Phin
 The quiet, resourceful half of the inventive duo. Ferb doesn’t say much, but he’s focused and skilled, especially when it comes to mechanical work and repairs.
 
 ### Candace
-Phineas and Ferb’s older sister, determined to catch her brothers in the act of building their latest invention. Candace is often distracted by calls with **Jeremy** but occasionally offers clues about item locations.
-
-### Linda (Mom)
-Linda is usually cooking or tidying up around the house. She’s largely oblivious to her sons’ creations but is kind and may share hints with players if asked.
-
-### Lawrence (Dad)
-A hobbyist who spends his time in the garage working on his own projects. Lawrence occasionally has spare parts or tools that might be useful for Perry’s vehicle repairs.
+Phineas and Ferb’s older sister, determined to catch her brothers in the act of building their latest invention. Candace is often distracted by calls with **Jeremy** but occasionally offers clues about item locations.\
 
 ### Perry the Platypus
 A secret agent posing as Phineas and Ferb’s pet platypus. Perry embarks on a mission to stop **Doofenshmirtz** and gathers the needed materials to help the player construct a vehicle capable of reaching the villain’s lair.
