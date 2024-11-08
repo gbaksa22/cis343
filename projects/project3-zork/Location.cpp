@@ -72,7 +72,7 @@ std::ostream& operator<<(std::ostream& os, const Location& location) {
         os << " - None\n";
     } else {
         for (const auto& item : location.items) {
-            os << " - " << item.toString() << "\n";
+            os << " - " << item << "\n";
         }
     }
     
