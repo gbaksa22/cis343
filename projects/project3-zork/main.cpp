@@ -4,12 +4,11 @@
 #include <iostream>
 
 int main() {
-    std::vector<std::string> npcSounds = {
-        "./audio/doofenshmirtz/doofenshmirtz-evil-incorporated-jingle.wav",
-        "./audio/doofenshmirtz/getting-warmer.wav",
-        "./audio/doofenshmirtz/perry-the-platypus.wav",
-        "./audio/doofenshmirtz/red-button.wav"
-    };
+    std::vector<std::string> npcSounds;
+    npcSounds.push_back("./audio/doofenshmirtz/doofenshmirtz-evil-incorporated-jingle.wav");
+    npcSounds.push_back("./audio/doofenshmirtz/getting-warmer.wav");
+    npcSounds.push_back("./audio/doofenshmirtz/perry-the-platypus.wav");
+    npcSounds.push_back("./audio/doofenshmirtz/red-button.wav");
 
     AudioManager npcAudioManager(npcSounds);
 
