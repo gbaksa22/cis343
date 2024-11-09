@@ -3,43 +3,46 @@
 
 #include <string>
 #include <vector>
+#include <functional>
 #include <map>
 #include <iostream>
 #include "NPC.h"
 #include "Item.h"
 
 class Location {
-    public:
-        // Constructor
-        Location(const std::string& name, const std::string& description);
+public:
+    // Constructor
+    Location(const std::string& name, const std::string& description);
 
-        // Getters
-        std::map<std::string, Location*> get_locations() const;
-        std::vector<NPC> get_npcs() const;
-        std::vector<Item> get_items() const;
-        bool get_visited() const;
+    // Getters
+    std::map<std::string, Location*> get_locations() const;
+    std::vector<std::reference_wrapper<NPC>> get_npcs() const;
+    std::vector<std::reference_wrapper<Item>> get_items() const;
+    bool get_visited() const;
 
-        // Addders
-        void add_location(const std::string& direction, Location* location);
-        void add_npc(const NPC& npc);
-        void add_item(const Item& item);
-        
-        // Set visited
-        void set_visited();
+    // Adders
+    void add_location(const std::string& direction, Location* location);
+    void add_npc(NPC& npc);
+    void add_item(Item& item);
+    
+    // Set visited
+    void set_visited();
 
-        // Overloaded stream operator
-        friend std::ostream& operator<<(std::ostream& os, const Location& location);
+    // Overloaded stream operator
+    friend std::ostream& operator<<(std::ostream& os, const Location& location);
 
-    private:
-        std::string name;
-        std::string description;
-        bool visited = false;
-        std::map<std::string, Location*> neighbors;
-        std::vector<NPC> npcs;
-        std::vector<Item> items;
+private:
+    std::string name;
+    std::string description;
+    bool visited = false;
+    std::map<std::string, Location*> neighbors;
+    std::vector<std::reference_wrapper<NPC>> npcs;
+    std::vector<std::reference_wrapper<Item>> items;
 };
 
 #endif
+
+
 
 
 
