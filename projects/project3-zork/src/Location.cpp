@@ -12,11 +12,11 @@ std::map<std::string, Location*> Location::get_locations() const {
     return neighbors;
 }
 
-std::vector<std::reference_wrapper<NPC>> Location::get_npcs() const {
+std::vector<std::reference_wrapper<NPC> > Location::get_npcs() const {
     return npcs;
 }
 
-std::vector<std::reference_wrapper<Item>> Location::get_items() const {
+std::vector<std::reference_wrapper<Item> > Location::get_items() const {
     return items;
 }
 
@@ -39,12 +39,12 @@ void Location::add_location(const std::string& direction, Location* location) {
 
 // Add an NPC
 void Location::add_npc(NPC& npc) {
-    npcs.push_back(std::ref(npc)); // wrap the NPC reference
+    npcs.push_back(std::ref(npc));
 }
 
 // Add an Item
 void Location::add_item(Item& item) {
-    items.push_back(std::ref(item)); // wrap the Item reference
+    items.push_back(std::ref(item));
 }
 
 // Mark location as visited
@@ -78,8 +78,11 @@ std::ostream& operator<<(std::ostream& os, const Location& location) {
 
     // Display Neighbors
     os << "You can go in the following Directions:\n";
-    for (const auto& [direction, loc] : location.neighbors) {
-        os << " - " << direction << " - " << loc->name;
+    for (const auto& pair : location.neighbors) {
+        const std::string& direction = pair.first;
+        Location* loc = pair.second;
+        //os << " - " << direction << " - " << loc->name;
+        os << " - " << loc->name;
         if (loc->get_visited()) {
             os << " (Visited)";
         }
