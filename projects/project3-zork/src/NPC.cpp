@@ -52,3 +52,17 @@ std::ostream& operator<<(std::ostream& os, const NPC& npc) {
     os << npc.name;
     return os;
 }
+
+// Add a single audio file with a name
+void NPC::add_audio_file(const std::string& name, const std::string& filePath) {
+    audioFiles.push_back({name, filePath});
+}
+
+// Get audio paths for initialization in AudioManager
+std::vector<std::string> NPC::get_audio_paths() const {
+    std::vector<std::string> paths;
+    for (const auto& entry : audioFiles) {
+        paths.push_back(entry.path);
+    }
+    return paths;
+}
