@@ -58,6 +58,17 @@ void NPC::add_audio_file(const std::string& name, const std::string& filePath) {
     audioFiles.push_back({name, filePath});
 }
 
+void NPC::play_audio(const std::string& name, AudioManager& audioManager) {
+    for (const auto& entry : audioFiles) {
+        if (entry.name == name) {
+            audioManager.playSound(entry.path);
+            std::cout << "Playing sound by name: " << name << "\n";
+            return;
+        }
+    }
+    std::cout << "Error: Audio file with name '" << name << "' not found.\n";
+}
+
 // Get audio paths for initialization in AudioManager
 std::vector<std::string> NPC::get_audio_paths() const {
     std::vector<std::string> paths;

@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "AudioManager.hpp"
 
 class NPC {
 public:
@@ -30,6 +31,7 @@ public:
 
     // Audio-related functions
     void add_audio_file(const std::string& name, const std::string& filePath);
+    void play_audio(const std::string& name, AudioManager& audioManager);
 
 private:
     std::string name;
