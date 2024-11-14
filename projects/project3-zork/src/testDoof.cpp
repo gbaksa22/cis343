@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+//run with g++ -std=c++11 -o testDoof testDoof.cpp NPC.cpp AudioManager.cpp
+
 int main() {
     // Create an NPC for Doofenshmirtz with a description
     NPC doof("Doofenshmirtz", "Evil scientist always trying to defeat Perry the Platypus.");
@@ -40,7 +42,7 @@ int main() {
     std::cout << "Press Enter to stop the sound...";
     std::cin.get();
     audioManager.stopSound();
-    
+
     // Clean up the audio engine
     audioManager.cleanup();
 
