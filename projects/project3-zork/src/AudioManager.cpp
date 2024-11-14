@@ -30,12 +30,18 @@ void AudioManager::playSound(const std::string& soundPath) {
 }
 
 void AudioManager::playRandomSound() {
-    // Shuffle and select a random sound
-    std::random_shuffle(audioFiles.begin(), audioFiles.end());
+    static int currentIndex = 0;
+
+    // Ensure there are sounds to play
     if (!audioFiles.empty()) {
-        playSound(audioFiles[0]);
+        // Play the sound at the current index
+        playSound(audioFiles[currentIndex]);
+
+        // Move to the next sound in the list, looping back to the start if necessary
+        currentIndex = (currentIndex + 1) % audioFiles.size();
     }
 }
+
 
 void AudioManager::cleanup() {
     ma_engine_uninit(&engine);
