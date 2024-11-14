@@ -7,16 +7,24 @@
             "command": "g++",
             "args": [
                 "-g",
-                "./projects/project3-zork/main.cpp",
-                "./projects/project3-zork/AudioManager.cpp",
-                "-I./projects/project3-zork",
+                "./projects/project3-zork/src/main.cpp",
+                "./projects/project3-zork/src/Game.cpp",
+                "./projects/project3-zork/src/Location.cpp",
+                "./projects/project3-zork/src/NPC.cpp",
+                "./projects/project3-zork/src/Item.cpp",
+                "./projects/project3-zork/src/AudioManager.cpp",
+                "-I./projects/project3-zork/include",
+                "-std=c++11",
                 "-o",
-                "./projects/project3-zork/main.exe"
+                "./projects/project3-zork/game.exe"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
+
+
