@@ -5,10 +5,8 @@
 #include <ctime>
 #include <iostream>
 
-AudioManager::AudioManager(const std::vector<std::string>& audioPaths)
-    : audioFiles(audioPaths)
-{
-    // Seed the random number generator
+AudioManager::AudioManager(const std::vector<std::string>& audioFiles)
+    : audioFiles(audioFiles), currentSoundInitialized(false) {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
@@ -21,28 +19,34 @@ bool AudioManager::init() {
 }
 
 void AudioManager::playSound(const std::string& soundPath) {
-    // Play the specified sound
-    if (ma_engine_play_sound(&engine, soundPath.c_str(), NULL) != MA_SUCCESS) {
-        std::cerr << "Failed to play sound: " << soundPath << std::endl;
+    // Stop any currently playing sound
+    stopSound();
+
+    // Initialize and play the specified sound
+    if (ma_sound_init_from_file(&engine, soundPath.c_str(), 0, NULL, NULL, &currentSound) != MA_SUCCESS) {
+        std::cerr << "Failed to load sound: " << soundPath << std::endl;
+        currentSoundInitialized = false;
     } else {
-        std::cout << "Playing: " << soundPath << std::endl;
+        currentSoundInitialized = true;
+        if (ma_sound_start(&currentSound) != MA_SUCCESS) {
+            std::cerr << "Failed to play sound: " << soundPath << std::endl;
+            ma_sound_uninit(&currentSound);
+            currentSoundInitialized = false;
+        } else {
+            std::cout << "Playing: " << soundPath << std::endl;
+        }
     }
 }
 
-void AudioManager::playRandomSound() {
-    static int currentIndex = 0;
-
-    // Ensure there are sounds to play
-    if (!audioFiles.empty()) {
-        // Play the sound at the current index
-        playSound(audioFiles[currentIndex]);
-
-        // Move to the next sound in the list, looping back to the start if necessary
-        currentIndex = (currentIndex + 1) % audioFiles.size();
+void AudioManager::stopSound() {
+    if (currentSoundInitialized) {
+        ma_sound_stop(&currentSound);
+        ma_sound_uninit(&currentSound);
+        currentSoundInitialized = false;
     }
 }
-
 
 void AudioManager::cleanup() {
+    stopSound();  // Ensure any playing sound is stopped and cleaned up
     ma_engine_uninit(&engine);
 }

@@ -24,12 +24,15 @@ int main() {
         return -1;
     }
 
-    // Play sounds in sequence
+    // Play sounds in sequence with the ability to stop each sound before playing the next
     for (size_t i = 0; i < audioPaths.size(); ++i) {
         audioManager.playSound(audioPaths[i]);
         std::cout << "Playing sound: " << audioPaths[i] << "\n";
-        std::cout << "Press Enter to play the next sound...";
+        std::cout << "Press Enter to stop and play the next sound...";
         std::cin.get();
+        
+        // Stop the current sound before moving to the next one
+        audioManager.stopSound();
     }
 
     // Clean up the audio engine
