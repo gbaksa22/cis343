@@ -1,1 +1,4 @@
 projects/project3-zork/episode.mp4
+
+#ignore executables
+*.exe
