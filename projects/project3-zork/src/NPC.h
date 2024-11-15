@@ -43,6 +43,7 @@ private:
     std::string description;
     std::vector<std::string> messages;
     int message_number = 0;
+    size_t index = 0; // Index for tracking audio files
 
     AudioManager audioManager; // Internal AudioManager instance
     std::vector<AudioEntry> audioFiles;

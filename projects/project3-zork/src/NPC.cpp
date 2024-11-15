@@ -6,6 +6,7 @@ NPC::NPC(const std::string& name, const std::string& description)
     : name(name.empty() ? "Unnamed NPC" : name),
       description(description.empty() ? "No description" : description),
       audioManager() // Initialize AudioManager
+      index(0) // Initialize index to 0
 {
     if (name.empty()) {
         std::cout << "Error: NPC name is blank.\n";
@@ -77,6 +78,21 @@ void NPC::play_audio(const std::string& name) {
 void NPC::stop_audio() {
     audioManager.stopSound();  // Call AudioManager's stopSound function to stop audio
     std::cout << "Stopping audio for NPC: " << name << "\n";
+}
+
+// Play the next audio file in the list
+void NPC::play_next() {
+    if (audioFiles.empty()) {
+        std::cout << "No audio files available for NPC: " << name << "\n";
+        return;
+    }
+    // Play the audio file at the current index
+    const auto& currentAudio = audioFiles[index];
+    audioManager.playSound(currentAudio.path);
+    std::cout << "Playing next sound: " << currentAudio.name << " for NPC: " << name << "\n";
+
+    // Increment the index and wrap around if needed
+    index = (index + 1) % audioFiles.size();
 }
 
 
