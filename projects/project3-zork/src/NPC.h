@@ -8,7 +8,6 @@
 
 class NPC {
 public:
-    // Struct to hold name and path of audio files
     struct AudioEntry {
         std::string name;
         std::string path;
@@ -17,21 +16,23 @@ public:
     // Constructor
     NPC(const std::string& name, const std::string& description);
 
+    // Overloaded operator<< for NPC
+    friend std::ostream& operator<<(std::ostream& os, const NPC& npc);
+
+
     // Getters
     std::string get_name() const;
     std::string get_description() const;
     std::string get_message();
     std::vector<std::string> get_audio_paths() const; // Getter for audio paths
 
-    // Overloaded stream operator
-    friend std::ostream& operator<<(std::ostream& os, const NPC& npc);
 
-    // Add a message
+    // Add message and audio
     void add_message(const std::string& message);
-
-    // Audio-related functions
     void add_audio_file(const std::string& name, const std::string& filePath);
-    void play_audio(const std::string& name, AudioManager& audioManager);
+
+    // Play audio by name
+    void play_audio(const std::string& name);
 
 private:
     std::string name;
@@ -39,7 +40,8 @@ private:
     std::vector<std::string> messages;
     int message_number = 0;
 
-    std::vector<AudioEntry> audioFiles; // Vector of named audio files
+    AudioManager audioManager; // Internal AudioManager instance
+    std::vector<AudioEntry> audioFiles;
 };
 
 #endif
