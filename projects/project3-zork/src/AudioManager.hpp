@@ -7,8 +7,8 @@
 
 class AudioManager {
 public:
-    // Constructor takes a vector of audio file paths
-    AudioManager(const std::vector<std::string>& audioPaths);
+    AudioManager(); // Default constructor for cases without initial audio files
+    AudioManager(const std::vector<std::string>& audioFiles); // Constructor with audio files
 
     // Initializes the audio engine
     bool init();

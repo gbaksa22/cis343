@@ -5,6 +5,11 @@
 #include <ctime>
 #include <iostream>
 
+AudioManager::AudioManager()
+    : currentSoundInitialized(false) {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
+}
+
 AudioManager::AudioManager(const std::vector<std::string>& audioFiles)
     : audioFiles(audioFiles), currentSoundInitialized(false) {
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
