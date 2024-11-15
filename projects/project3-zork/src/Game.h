@@ -18,7 +18,10 @@ class Game {
         void play();
 
         // Command setup and world creation
-        std::map<std::string, void(*)(std::vector<std::string>)> setup_commands();
+        //std::map<std::string, void(*)(std::vector<std::string>)> setup_commands();
+        std::map<std::string, std::function<void(std::vector<std::string>)>> setup_commands();
+
+
         void create_world();
 
         // Command functions
@@ -26,19 +29,22 @@ class Game {
         void talk(std::vector<std::string> target);
         void meet(std::vector<std::string> target);
         void take(std::vector<std::string> target);
-        void give(std::vector<std::string> target);
+        void drop(std::vector<std::string> target);
         void go(std::vector<std::string> target);
-        void show_items(std::vector<std::string> target);
         void look(std::vector<std::string> target);
         void quit(std::vector<std::string> target);
         void build(std::vector<std::string> target);
+        void show_inventory(std::vector<std::string> target);
 
         void test_play_audio();
 
     private:
-        std::map<std::string, void(*)(std::vector<std::string>)> commands;
+        //std::map<std::string, void(*)(std::vector<std::string>)> commands;
+        std::map<std::string, std::function<void(std::vector<std::string>)>> commands;
+
         std::vector<Item> inventory;
         std::vector<Location> locations;
+        int weight = 0;
         Location* current_location;
         int needed_parts = 5; 
         bool game_in_progress = true;
