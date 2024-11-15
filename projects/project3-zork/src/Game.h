@@ -7,6 +7,7 @@
 #include "Location.h"
 #include "Item.h"
 #include "NPC.h"
+#include "AudioManager.hpp"
 
 class Game {
     public:
@@ -31,6 +32,8 @@ class Game {
         void look(std::vector<std::string> target);
         void quit(std::vector<std::string> target);
         void build(std::vector<std::string> target);
+
+        void test_play_audio();
 
     private:
         std::map<std::string, void(*)(std::vector<std::string>)> commands;

@@ -38,6 +38,23 @@ void Game::play() {
     for (const auto& location : locations) {
         std::cout << location << "\n";
     }
+
+    // Test playing audio for each NPC
+    test_play_audio();
+}
+
+void Game::test_play_audio() {
+    std::cout << "\nTesting audio playback for each NPC:\n";
+
+    // Play audio for Candace
+    candace.play_audio("In Charge");
+    std::cout << "Press Enter to stop and play the next sound...";
+    std::cin.get();
+
+    // Continue with other NPCs
+    constructionWorker.play_audio("A Little Young");
+    std::cout << "Press Enter to stop and play the next sound...";
+    std::cin.get();
 }
 
 // Create the World
@@ -83,5 +100,27 @@ void Game::create_world() {
 
     // Set Starting Location
     current_location = &flynnFletcherResidence;
+
+    // Initialize audio files for each NPC
+    candace.add_audio_file("In Charge", "../audio/npcs/candace/candace1-in-charge.wav");
+    candace.add_audio_file("Can't Wait", "../audio/npcs/candace/candace2-cant-wait.wav");
+    candace.add_audio_file("Roller Coaster", "../audio/npcs/candace/candace3-roller-coaster.wav");
+    candace.add_audio_file("Down Down Down", "../audio/npcs/candace/candace4-down-down-down.wav");
+    candace.add_audio_file("Telling Mom", "../audio/npcs/candace/candace5-telling-mom.wav");
+
+    constructionWorker.add_audio_file("A Little Young", "../audio/npcs/construction-worker/construction1-a-little-young.wav");
+    constructionWorker.add_audio_file("Crayon Forms", "../audio/npcs/construction-worker/construction2-crayon-forms.wav");
+
+    drDoofenshmirtz.add_audio_file("Unexpected Surprise", "../audio/npcs/doofenshmirtz/doof1-unexpected-surprise.wav");
+    drDoofenshmirtz.add_audio_file("Evil Plan", "../audio/npcs/doofenshmirtz/doof2-evil-plan.wav");
+    drDoofenshmirtz.add_audio_file("Pizza Delivery Guy", "../audio/npcs/doofenshmirtz/doof3-pizza-delivery-guy.wav");
+    drDoofenshmirtz.add_audio_file("Getting Warmer", "../audio/npcs/doofenshmirtz/doof4-getting-warmer.wav");
+    drDoofenshmirtz.add_audio_file("Red Button", "../audio/npcs/doofenshmirtz/doof5-red-button.wav");
+
+    majorMonogram.add_audio_file("Tinfoil", "../audio/npcs/monogram/monogram1-tinfoil.wav");
+    majorMonogram.add_audio_file("Stop to It", "../audio/npcs/monogram/monogram2-stop-to-it.wav");
+    majorMonogram.add_audio_file("Cover", "../audio/npcs/monogram/monogram3-cover.wav");
+    majorMonogram.add_audio_file("Counting on You", "../audio/npcs/monogram/monogram4-counting-on-you.wav");
+    majorMonogram.add_audio_file("Good Luck", "../audio/npcs/monogram/monogram5-good-luck.wav");
 }
 
