@@ -1,1 +1,12 @@
 projects/project3-zork/episode.mp4
+
+*.exe
+projects/project3-zork/game
+projects/project3-zork/test
+projects/project3-zork/test_item
+projects/project3-zork/test_location
+projects/project3-zork/test_npc
+projects/project3-zork/game.exe.dSYM/Contents/Info.plist
+projects/project3-zork/game.exe.dSYM/Contents/Resources/Relocations/aarch64/game.exe.yml
+projects/project3-zork/main.exe.dSYM/Contents/Info.plist
+projects/project3-zork/main.exe.dSYM/Contents/Resources/Relocations/aarch64/main.exe.yml
