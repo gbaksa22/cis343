@@ -1,5 +1,7 @@
 #include "Location.h"
 #include <iostream>
+#include <algorithm>
+
 
 // Constructor
 Location::Location(const std::string& name, const std::string& description) {
