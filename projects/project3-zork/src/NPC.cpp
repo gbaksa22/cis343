@@ -73,6 +73,12 @@ void NPC::play_audio(const std::string& name) {
     std::cerr << "Error: Audio file with name '" << name << "' not found for NPC: " << get_name() << "\n";
 }
 
+// Stop currently playing audio
+void NPC::stop_audio() {
+    audioManager.stopSound();  // Call AudioManager's stopSound function to stop audio
+    std::cout << "Stopping audio for NPC: " << name << "\n";
+}
+
 
 // Helper function to get all audio paths for AudioManager initialization
 std::vector<std::string> NPC::get_audio_paths() const {

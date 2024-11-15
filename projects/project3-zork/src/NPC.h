@@ -34,6 +34,10 @@ public:
     // Play audio by name
     void play_audio(const std::string& name);
 
+    // Stop audio that is currently playing
+    void stop_audio();
+
+
 private:
     std::string name;
     std::string description;

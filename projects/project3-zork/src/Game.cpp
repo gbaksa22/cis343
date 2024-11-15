@@ -50,12 +50,15 @@ void Game::test_play_audio() {
     candace.play_audio("In Charge");
     std::cout << "Press Enter to stop and play the next sound...";
     std::cin.get();
+    candace.stop_audio();  // Stop Candace's audio before moving to the next NPC
 
-    // Continue with other NPCs
+    // Play audio for Construction Worker
     constructionWorker.play_audio("A Little Young");
     std::cout << "Press Enter to stop and play the next sound...";
     std::cin.get();
+    constructionWorker.stop_audio();  // Stop Construction Worker's audio before the next NPC
 }
+
 
 // Create the World
 void Game::create_world() {
