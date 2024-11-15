@@ -25,7 +25,7 @@ Game::Game()
       blowtorch("Blowtorch", "A heavy-duty blowtorch with a bright orange flame, perfect for metalwork and essential for the roller coaster's construction.", 1),
       peanutButter("Peanut Butter", "A jar of Buford's favorite chunky peanut butter. Surprisingly helpful in assembling machinery, as Phineas has discovered.", 1),
       wrench("Wrench", "A sturdy, well-used wrench that's just the right size for tightening bolts on a big project.", 1),
-      roboMachine("Robo Machine", "A robotic assembly tool with multiple appendages and a friendly beep. Essential for assembling complex parts of the roller coaster.", 1),
+      roboMachine("Robo Machine", "A robotic assembly tool with multiple appendages and a friendly beep. Essential for assembling complex parts of the roller coaster.", 30),
       computerChip("Computer Chip", "A tiny but powerful computer chip that controls key functions of the roller coaster, packed with high-tech circuitry.", 1),
       blueprints("Blueprints", "Detailed blueprints with every line and measurement needed to bring Phineas and Ferb's roller coaster vision to life.", 1)
 {
@@ -35,8 +35,7 @@ Game::Game()
 // Main Game Loop
 void Game::play() {
     std::cout << "Starting the Phineas and Ferb Adventure Game...\n";
-    std::cout << "Collect all the necessary parts to build the roller coaster and win the game!\n";
-
+    std::cout << "Collect all the necessary parts to build the roller coaster and give them to Phineas in the Backyard Workshop to win the game!\n";
     // Set up commands
     commands = setup_commands();
 
@@ -367,14 +366,20 @@ void Game::talk(std::vector<std::string> target) {
     NPC& found_npc = npc_it->get();
 
     // Retrieve and print the message from the NPC.
-    std::string message = found_npc.get_message();
-    std::cout << npc_name << " says: \"" << message << "\"\n";
+    //std::string message = found_npc.get_message();
+    //std::cout << npc_name << " says: \"" << message << "\"\n";
 }
 
 void Game::quit(std::vector<std::string> target) {
     std::cout << "Quitting the game.\n";
     game_in_progress = false;
 }
+
+
+void Game::give(std::vector<std::string> target) {
+
+}
+
 
 void Game::show_help() {
     std::cout << "Available Commands:\n";
@@ -385,6 +390,7 @@ void Game::show_help() {
     std::cout << " - inventory: List of items in your inventory\n";
     std::cout << " - meet <NPC Name>: Get the description of a NPC\n";
     std::cout << " - talk <NPC Name>: Talk to an NPC\n";
+    std::cout << " - give <item>: Given item to Phineas to help build the rollar coaster\n";
     std::cout << " - help: Show this help message\n";
     std::cout << " - quit: Exit the game\n";
     current_location->set_visited();
@@ -393,7 +399,6 @@ void Game::show_help() {
 std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup_commands() {
     std::map<std::string, std::function<void(std::vector<std::string>)>> commands;
 
-    // Capturing 'this' allows access to instance methods
     commands["help"] = [this](std::vector<std::string> args) { this->show_help(); }; 
     commands["go"] = [this](std::vector<std::string> args) { this->go(args); }; 
     commands["look"] = [this](std::vector<std::string> args) { this->look(args); };
@@ -403,10 +408,7 @@ std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup
     commands["quit"] = [this](std::vector<std::string> args) { this->quit(args); };
     commands["meet"] = [this](std::vector<std::string> args) { this->meet(args); };
     commands["talk"] = [this](std::vector<std::string> args) { this->talk(args); };
-
-    /*
     commands["give"] = [this](std::vector<std::string> args) { this->give(args); };
-    commands["build"] = [this](std::vector<std::string> args) { this->build(args); };
-    */
+
     return commands;
 }

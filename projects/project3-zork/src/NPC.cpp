@@ -5,7 +5,7 @@
 NPC::NPC(const std::string& name, const std::string& description)
     : name(name.empty() ? "Unnamed NPC" : name),
       description(description.empty() ? "No description" : description),
-      audioManager() // Initialize AudioManager
+      audioManager(), // Initialize AudioManager
       index(0) // Initialize index to 0
 {
     if (name.empty()) {

@@ -26,6 +26,7 @@ public:
     std::string get_message();
     std::vector<std::string> get_audio_paths() const; // Getter for audio paths
 
+    void play_next();
 
     // Add message and audio
     void add_message(const std::string& message);
