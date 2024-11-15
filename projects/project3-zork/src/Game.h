@@ -70,6 +70,16 @@ class Game {
         Item roboMachine;
         Item computerChip;
         Item blueprints;
+
+        int level = 1; // Tracks the current level for giving items in order
+        std::vector<std::string> required_items = {
+            "Blowtorch",
+            "Peanut Butter",
+            "Wrench",
+            "Robo Machine",
+            "Computer Chip",
+            "Blueprints"
+        };
 };
 
 #endif

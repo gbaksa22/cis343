@@ -343,32 +343,38 @@ void Game::talk(std::vector<std::string> target) {
 
     std::string npc_name = target[0];
 
-    // Get the list of NPCs in the current location.
-    const auto& npcs_in_location = current_location->get_npcs();
-    if (npcs_in_location.empty()) {
-        std::cout << "There are no NPCs here to talk to.\n";
+    // Check if the player is talking to Phineas at the Backyard Workshop
+    if (npc_name != "Phineas" || current_location->get_name() != "Backyard Workshop") {
+        std::cout << "There's no one here by that name, or you're not at the Backyard Workshop.\n";
         return;
     }
 
-    // Find the NPC using its name.
-    auto npc_it = std::find_if(npcs_in_location.begin(), npcs_in_location.end(),
-                               [&](const std::reference_wrapper<NPC>& npc_ref) {
-                                   return npc_ref.get().get_name() == npc_name;
-                               });
-
-    // Check if the NPC was found.
-    if (npc_it == npcs_in_location.end()) {
-        std::cout << "The NPC '" << npc_name << "' is not in this location.\n";
-        return;
+    // Provide the prompt based on the current level
+    switch (level) {
+        case 1:
+            std::cout << "Hey, could you grab the blowtorch? It’s the one with the bright orange flame! We’ll need it for some heavy-duty metalwork.\n";
+            break;
+        case 2:
+            std::cout << "Next, we’re going to need Buford’s chunky peanut butter. Don’t ask why—it just works!\n";
+            break;
+        case 3:
+            std::cout << "Now, I could use a wrench. It’s the one that’s just the right size for some big bolts!\n";
+            break;
+        case 4:
+            std::cout << "Could you find the Robo Machine? It’s got all sorts of gadgets and a friendly little beep.\n";
+            break;
+        case 5:
+            std::cout << "Next up, I’ll need a computer chip. It’s small but super powerful—key to controlling the roller coaster.\n";
+            break;
+        case 6:
+            std::cout << "Finally, could you bring over the blueprints? They have all our measurements and designs!\n";
+            break;
+        default:
+            std::cout << "We have everything we need! Let's build the roller coaster!\n";
+            break;
     }
-
-    // Get the NPC reference.
-    NPC& found_npc = npc_it->get();
-
-    // Retrieve and print the message from the NPC.
-    //std::string message = found_npc.get_message();
-    //std::cout << npc_name << " says: \"" << message << "\"\n";
 }
+
 
 void Game::quit(std::vector<std::string> target) {
     std::cout << "Quitting the game.\n";
@@ -377,8 +383,92 @@ void Game::quit(std::vector<std::string> target) {
 
 
 void Game::give(std::vector<std::string> target) {
+    if (target.empty()) {
+        std::cout << "Please specify an item to give.\n";
+        return;
+    }
 
+    // Check if the player is at the Backyard Workshop
+    if (current_location->get_name() != "Backyard Workshop") {
+        std::cout << "You can only give items to Phineas at the Backyard Workshop.\n";
+        return;
+    }
+
+    std::string item_name = target[0];
+
+    // Check if the item matches the expected item for the current level
+    if (item_name != required_items[level - 1]) {
+        switch (level) {
+            case 1:
+                std::cout << "Hmm, that’s not quite it. I need the blowtorch to get started!\n";
+                break;
+            case 2:
+                std::cout << "Close, but no peanut butter! Could you bring that over?\n";
+                break;
+            case 3:
+                std::cout << "That’s not quite right. I still need the wrench to get things tightened down.\n";
+                break;
+            case 4:
+                std::cout << "Hmm, that’s not the Robo Machine. Try again—it’s got to be around here somewhere.\n";
+                break;
+            case 5:
+                std::cout << "Not quite. I need the computer chip for the controls. Could you look again?\n";
+                break;
+            case 6:
+                std::cout << "That’s not the blueprints. I still need them to get everything in order.\n";
+                break;
+        }
+        return;
+    }
+
+    // Find the item in the player's inventory
+    auto item_iterator = std::find_if(inventory.begin(), inventory.end(),
+                                      [&](const Item& item) {
+                                          return item.get_name() == item_name;
+                                      });
+
+    if (item_iterator == inventory.end()) {
+        std::cout << "You don’t have the " << item_name << " in your inventory.\n";
+        return;
+    }
+
+    // Remove the item from the inventory and update weight
+    int item_weight = item_iterator->get_weight();
+    inventory.erase(item_iterator);
+    weight -= item_weight;
+
+    // Print the correct message based on the current level
+    switch (level) {
+        case 1:
+            std::cout << "Awesome! This blowtorch is exactly what we need. Thanks a bunch!\n";
+            break;
+        case 2:
+            std::cout << "Perfect! Peanut butter is always the secret ingredient. Thanks for grabbing it!\n";
+            break;
+        case 3:
+            std::cout << "You got it! This wrench is exactly what we need to tighten things up.\n";
+            break;
+        case 4:
+            std::cout << "Yes! The Robo Machine is here and ready to assemble. Thanks for finding it!\n";
+            break;
+        case 5:
+            std::cout << "Perfect! This computer chip is just what we need. Thanks!\n";
+            break;
+        case 6:
+            std::cout << "Awesome! Now we have everything we need to bring this roller coaster to life!\n";
+            break;
+    }
+
+    // Increment the level
+    level++;
+
+    // Check if the player has completed the game
+    if (level > 6) {
+        std::cout << "Congratulations! You've given all the items to Phineas. The roller coaster is complete! You win the game!\n";
+        game_in_progress = false;
+    }
 }
+
 
 
 void Game::show_help() {
