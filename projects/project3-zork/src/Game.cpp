@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <iostream>
 #include <sstream>
+#include <sstream>
 
 // Constructor
 Game::Game()
@@ -32,6 +33,60 @@ Game::Game()
 // Main Game Loop
 void Game::play() {
     std::cout << "Starting the Phineas and Ferb Adventure Game...\n";
+    std::cout << "Collect all the necessary parts to build the roller coaster and win the game!\n";
+
+    // Set up commands
+    commands = setup_commands();
+
+    current_location->set_visited();
+
+    // Main game loop
+    while (game_in_progress) {
+        std::cout << "==============================================================================\n";
+        std::cout << "Enter a command (type 'help' for a list of valid commands): ";
+
+        // Get user input
+        std::string user_input;
+        std::getline(std::cin, user_input);
+
+        // Split user input into command and target
+        std::istringstream iss(user_input);
+        std::vector<std::string> tokens;
+        std::string token;
+        while (iss >> token) {
+            tokens.push_back(token);
+        }
+
+        if (tokens.empty()) {
+            std::cout << "Please enter a command.\n";
+            continue;
+        }
+
+        // Extract the command
+        std::string command = tokens[0];
+        tokens.erase(tokens.begin());
+
+        // Join the remaining tokens to form the full target
+        std::string target;
+        for (const auto& word : tokens) {
+            if (!target.empty()) {
+                target += " ";
+            }
+            target += word;
+        }
+
+        // Check if the command exists in the map
+        if (commands.find(command) != commands.end()) {
+            // Call the corresponding function with the full target as a single-element vector
+            commands[command]({target});
+        } else {
+            std::cout << "Unknown command. Type 'help' for a list of commands.\n";
+        }
+    }
+
+    std::cout << "Game Over. Thanks for playing!\n";
+}
+
     std::cout << "Collect all the necessary parts to build the roller coaster and win the game!\n";
 
     // Set up commands
@@ -126,6 +181,27 @@ void Game::create_world() {
     constructionSite.add_location("East", &doofenshmirtzEvilInc);
 
     doofenshmirtzEvilInc.add_location("West", &constructionSite);
+    flynnFletcherResidence.add_location("North", &backyardWorkshop);
+    flynnFletcherResidence.add_location("South", &danvillePark);
+    flynnFletcherResidence.add_location("West", &baljeetHouse);
+    flynnFletcherResidence.add_location("East", &constructionSite);
+
+    backyardWorkshop.add_location("North", &secretLair);
+    backyardWorkshop.add_location("South", &flynnFletcherResidence);
+
+    secretLair.add_location("South", &backyardWorkshop);
+
+    danvillePark.add_location("North", &flynnFletcherResidence);
+
+    baljeetHouse.add_location("West", &bufordHouse);
+    baljeetHouse.add_location("East", &flynnFletcherResidence);
+
+    bufordHouse.add_location("East", &baljeetHouse);
+
+    constructionSite.add_location("West", &flynnFletcherResidence);
+    constructionSite.add_location("East", &doofenshmirtzEvilInc);
+
+    doofenshmirtzEvilInc.add_location("West", &constructionSite);
 
     // Store Locations in Vector
     locations.push_back(flynnFletcherResidence);
@@ -139,6 +215,274 @@ void Game::create_world() {
 
     // Set Starting Location
     current_location = &flynnFletcherResidence;
+
+    // Initialize audio files for each NPC
+    candace.add_audio_file("In Charge", "../audio/npcs/candace/candace1-in-charge.wav");
+    candace.add_audio_file("Can't Wait", "../audio/npcs/candace/candace2-cant-wait.wav");
+    candace.add_audio_file("Roller Coaster", "../audio/npcs/candace/candace3-roller-coaster.wav");
+    candace.add_audio_file("Down Down Down", "../audio/npcs/candace/candace4-down-down-down.wav");
+    candace.add_audio_file("Telling Mom", "../audio/npcs/candace/candace5-telling-mom.wav");
+
+    constructionWorker.add_audio_file("A Little Young", "../audio/npcs/construction-worker/construction1-a-little-young.wav");
+    constructionWorker.add_audio_file("Crayon Forms", "../audio/npcs/construction-worker/construction2-crayon-forms.wav");
+
+    drDoofenshmirtz.add_audio_file("Unexpected Surprise", "../audio/npcs/doofenshmirtz/doof1-unexpected-surprise.wav");
+    drDoofenshmirtz.add_audio_file("Evil Plan", "../audio/npcs/doofenshmirtz/doof2-evil-plan.wav");
+    drDoofenshmirtz.add_audio_file("Pizza Delivery Guy", "../audio/npcs/doofenshmirtz/doof3-pizza-delivery-guy.wav");
+    drDoofenshmirtz.add_audio_file("Getting Warmer", "../audio/npcs/doofenshmirtz/doof4-getting-warmer.wav");
+    drDoofenshmirtz.add_audio_file("Red Button", "../audio/npcs/doofenshmirtz/doof5-red-button.wav");
+
+    majorMonogram.add_audio_file("Tinfoil", "../audio/npcs/monogram/monogram1-tinfoil.wav");
+    majorMonogram.add_audio_file("Stop to It", "../audio/npcs/monogram/monogram2-stop-to-it.wav");
+    majorMonogram.add_audio_file("Cover", "../audio/npcs/monogram/monogram3-cover.wav");
+    majorMonogram.add_audio_file("Counting on You", "../audio/npcs/monogram/monogram4-counting-on-you.wav");
+    majorMonogram.add_audio_file("Good Luck", "../audio/npcs/monogram/monogram5-good-luck.wav");
+    current_location->set_visited();
+}
+
+std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup_commands() {
+    std::map<std::string, std::function<void(std::vector<std::string>)>> commands;
+
+    // Capturing 'this' allows access to instance methods
+    commands["help"] = [this](std::vector<std::string> args) { this->show_help(); }; 
+    commands["go"] = [this](std::vector<std::string> args) { this->go(args); }; 
+    commands["look"] = [this](std::vector<std::string> args) { this->look(args); };
+    commands["take"] = [this](std::vector<std::string> args) { this->take(args); };
+    commands["drop"] = [this](std::vector<std::string> args) { this->drop(args); };
+    commands["inventory"] = [this](std::vector<std::string> args) { this->show_inventory(args); };
+    commands["quit"] = [this](std::vector<std::string> args) { this->quit(args); };
+    commands["meet"] = [this](std::vector<std::string> args) { this->meet(args); };
+    commands["talk"] = [this](std::vector<std::string> args) { this->talk(args); };
+
+    /*
+    commands["give"] = [this](std::vector<std::string> args) { this->give(args); };
+    commands["build"] = [this](std::vector<std::string> args) { this->build(args); };
+    */
+    return commands;
+}
+
+void Game::go(std::vector<std::string> target) {
+    // Check if a direction was provided
+    if (target.empty()) {
+        std::cout << "You need to specify a direction (e.g., 'go North').\n";
+        return;
+    }
+
+    // Check if the player is carrying too much weight
+    if (weight > 30) {
+        std::cout << "You are carrying too much weight and cannot move. Try dropping some items.\n";
+        return;
+    }
+
+    // Get the direction from the user input (first word in target vector)
+    std::string direction = target[0];
+
+    // Check if the direction exists in the current location's neighbors
+    auto neighbors = current_location->get_locations();
+    if (neighbors.find(direction) != neighbors.end()) {
+        // Move to the new location
+        current_location = neighbors[direction];
+        // Mark the new location as visited
+        current_location->set_visited();
+
+        // Print the new location's name and description
+        std::cout << "You go " << direction << " and arrive at " << current_location->get_name() << ".\n";
+        std::cout << current_location->get_description() << "\n";
+    } else {
+        // Direction is not valid
+        std::cout << "You can't go that way. Try a different direction.\n";
+    }
+}
+
+void Game::look(std::vector<std::string> target) {
+    if (!current_location) {
+        std::cout << "Error: Current location is undefined.\n";
+        return;
+    }
+
+    // Print the details of the current location
+    std::cout << *current_location << "\n";
+}
+
+void Game::take(std::vector<std::string> target) {
+    if (target.empty()) {
+        std::cout << "Please specify an item to take.\n";
+        return;
+    }
+
+    std::string item_name = target[0];
+
+    // Get the list of items in the current location.
+    auto& items_in_location = current_location->get_items();
+
+    // Find the item in the current location's inventory using its name.
+    auto item_iterator = std::find_if(items_in_location.begin(), items_in_location.end(),
+                                      [&](const std::reference_wrapper<Item>& item) {
+                                          return item.get().get_name() == item_name;
+                                      });
+
+    // Check if the item was found.
+    if (item_iterator == items_in_location.end()) {
+        std::cout << "The item '" << item_name << "' is not in this location.\n";
+        return;
+    }
+
+    // Get the reference to the found item.
+    Item& found_item = item_iterator->get();
+    int item_weight = found_item.get_weight();
+
+    // Add the item to the player's inventory and update the carried weight.
+    inventory.push_back(found_item);
+    weight += item_weight;
+
+    // Remove the item from the current location's inventory.
+    current_location->remove_item(item_name);
+
+    std::cout << "You have taken the '" << found_item.get_name() << "' (Weight: " << item_weight << ").\n";
+}
+
+void Game::drop(std::vector<std::string> target) {
+    if (target.empty()) {
+        std::cout << "Please specify an item to drop.\n";
+        return;
+    }
+
+    // Join the target words to form the full item name (e.g., "Robo Machine").
+    std::string item_name;
+    for (const auto& word : target) {
+        if (!item_name.empty()) {
+            item_name += " ";
+        }
+        item_name += word;
+    }
+
+    // Find the item in the player's inventory using its full name.
+    auto item_iterator = std::find_if(inventory.begin(), inventory.end(),
+                                      [&](const Item& item) {
+                                          return item.get_name() == item_name;
+                                      });
+
+    // Check if the item was found in the inventory.
+    if (item_iterator == inventory.end()) {
+        std::cout << "You do not have the item '" << item_name << "' in your inventory.\n";
+        return;
+    }
+
+    // Get the reference to the found item.
+    Item dropped_item = *item_iterator; // Make a copy of the item to preserve its data.
+
+    // Add the item back to the current location's inventory.
+    current_location->add_item(dropped_item);
+    std::cout << "Debug - Dropped item: " << dropped_item.get_name() << " (Weight: " << dropped_item.get_weight() << ")\n";
+
+    // Remove the item from the player's inventory and update the carried weight.
+    int item_weight = dropped_item.get_weight();
+    inventory.erase(item_iterator);
+    weight -= item_weight;
+
+    std::cout << "You have dropped the '" << dropped_item.get_name() << "' (Weight: " << item_weight << ").\n";
+}
+
+void Game::show_inventory(std::vector<std::string> target) {
+    if (inventory.empty()) {
+        std::cout << "Your inventory is empty.\n";
+        return;
+    }
+
+    std::cout << "Your inventory contains:\n";
+    for (const auto& item : inventory) {
+        std::cout << " - " << item.get_name() << " (Weight: " << item.get_weight() << ")\n";
+    }
+
+    std::cout << "Total weight carried: " << weight << "\n";
+}
+
+void Game::meet(std::vector<std::string> target) {
+    if (target.empty()) {
+        std::cout << "Please specify an NPC to meet.\n";
+        return;
+    }
+
+    std::string npc_name = target[0];
+
+    // Check if the current location has any NPCs.
+    const auto& npcs_in_location = current_location->get_npcs();
+    if (npcs_in_location.empty()) {
+        std::cout << "There are no NPCs in this location.\n";
+        return;
+    }
+
+    // Find the NPC in the current location using reference wrapper correctly.
+    auto npc_it = std::find_if(npcs_in_location.begin(), npcs_in_location.end(),
+                               [&](const std::reference_wrapper<NPC>& npc_ref) {
+                                   return npc_ref.get().get_name() == npc_name;
+                               });
+
+    // Check if the NPC was found.
+    if (npc_it == npcs_in_location.end()) {
+        std::cout << "The NPC '" << npc_name << "' is not in this location.\n";
+        return;
+    }
+
+    // Safely access the NPC using reference wrapper.
+    NPC& found_npc = npc_it->get();
+
+    // Print the NPC's description.
+    std::string description = found_npc.get_description();
+    std::cout << "You meet " << npc_name << ". " << description << "\n";
+}
+
+void Game::talk(std::vector<std::string> target) {
+    if (target.empty()) {
+        std::cout << "Please specify an NPC to talk to.\n";
+        return;
+    }
+
+    std::string npc_name = target[0];
+
+    // Get the list of NPCs in the current location.
+    const auto& npcs_in_location = current_location->get_npcs();
+    if (npcs_in_location.empty()) {
+        std::cout << "There are no NPCs here to talk to.\n";
+        return;
+    }
+
+    // Find the NPC using its name.
+    auto npc_it = std::find_if(npcs_in_location.begin(), npcs_in_location.end(),
+                               [&](const std::reference_wrapper<NPC>& npc_ref) {
+                                   return npc_ref.get().get_name() == npc_name;
+                               });
+
+    // Check if the NPC was found.
+    if (npc_it == npcs_in_location.end()) {
+        std::cout << "The NPC '" << npc_name << "' is not in this location.\n";
+        return;
+    }
+
+    // Get the NPC reference.
+    NPC& found_npc = npc_it->get();
+
+    // Retrieve and print the message from the NPC.
+    std::string message = found_npc.get_message();
+    std::cout << npc_name << " says: \"" << message << "\"\n";
+}
+
+void Game::quit(std::vector<std::string> target) {
+    std::cout << "Quitting the game.\n";
+    game_in_progress = false;
+}
+
+void Game::show_help() {
+    std::cout << "Available Commands:\n";
+    std::cout << " - look: Look around the current location\n";
+    std::cout << " - go <direction>: Move to a new location\n";
+    std::cout << " - take <item>: Take an item from the current location\n";
+    std::cout << " - drop <item>: Give an item from your inventory\n";
+    std::cout << " - inventory: List of items in your inventory\n";
+    std::cout << " - meet <NPC Name>: Get the description of a NPC\n";
+    std::cout << " - talk <NPC Name>: Talk to an NPC\n";
+    std::cout << " - help: Show this help message\n";
+    std::cout << " - quit: Exit the game\n";
     current_location->set_visited();
 }
 

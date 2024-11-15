@@ -10,3 +10,5 @@ projects/project3-zork/game.exe.dSYM/Contents/Info.plist
 projects/project3-zork/game.exe.dSYM/Contents/Resources/Relocations/aarch64/game.exe.yml
 projects/project3-zork/main.exe.dSYM/Contents/Info.plist
 projects/project3-zork/main.exe.dSYM/Contents/Resources/Relocations/aarch64/main.exe.yml
+#ignore executables
+*.exe

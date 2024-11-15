@@ -2,19 +2,16 @@
 #include <iostream>
 
 // Constructor
-NPC::NPC(const std::string& name, const std::string& description) {
+NPC::NPC(const std::string& name, const std::string& description)
+    : name(name.empty() ? "Unnamed NPC" : name),
+      description(description.empty() ? "No description" : description),
+      audioManager() // Initialize AudioManager
+{
     if (name.empty()) {
         std::cout << "Error: NPC name is blank.\n";
-        this->name = "Unnamed NPC";
-    } else {
-        this->name = name;
     }
-
     if (description.empty()) {
         std::cout << "Error: NPC description is blank.\n";
-        this->description = "No description";
-    } else {
-        this->description = description;
     }
 }
 
@@ -51,4 +48,43 @@ void NPC::add_message(const std::string& message) {
 std::ostream& operator<<(std::ostream& os, const NPC& npc) {
     os << npc.name;
     return os;
+}
+// Add an audio file by name and path
+void NPC::add_audio_file(const std::string& name, const std::string& filePath) {
+    audioFiles.push_back({name, filePath});
+    audioManager = AudioManager(get_audio_paths()); // Reinitialize AudioManager with updated paths
+}
+
+// Play audio by name
+void NPC::play_audio(const std::string& name) {
+    if (!audioManager.init()) {  // Ensure AudioManager is initialized
+        std::cerr << "Error: Failed to initialize AudioManager for NPC: " << name << "\n";
+        return;
+    }
+
+    for (const auto& entry : audioFiles) {
+        if (entry.name == name) {
+            audioManager.playSound(entry.path);  // Play the audio file
+            std::cout << "Playing sound: " << name << "\n";
+            return;
+        }
+    }
+
+    std::cerr << "Error: Audio file with name '" << name << "' not found for NPC: " << get_name() << "\n";
+}
+
+// Stop currently playing audio
+void NPC::stop_audio() {
+    audioManager.stopSound();  // Call AudioManager's stopSound function to stop audio
+    std::cout << "Stopping audio for NPC: " << name << "\n";
+}
+
+
+// Helper function to get all audio paths for AudioManager initialization
+std::vector<std::string> NPC::get_audio_paths() const {
+    std::vector<std::string> paths;
+    for (const auto& entry : audioFiles) {
+        paths.push_back(entry.path);
+    }
+    return paths;
 }
