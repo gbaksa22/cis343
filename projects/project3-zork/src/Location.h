@@ -17,13 +17,18 @@ class Location {
         // Getters
         std::map<std::string, Location*> get_locations() const;
         std::vector<std::reference_wrapper<NPC> > get_npcs() const;
-        std::vector<std::reference_wrapper<Item> > get_items() const;
+        std::vector<std::reference_wrapper<Item>>& get_items();
+
         bool get_visited() const;
+        std::string get_name() const; 
+        std::string get_description() const; 
 
         // Adders
         void add_location(const std::string& direction, Location* location);
         void add_npc(NPC& npc);
         void add_item(Item& item);
+
+        bool remove_item(const std::string& item_name);
         
         // Set visited
         void set_visited();
@@ -41,6 +46,12 @@ class Location {
 };
 
 #endif
+
+
+
+
+
+
 
 
 
