@@ -7,12 +7,12 @@
 class Item {
     public:
         // Constructor
-        Item(const std::string& name, const std::string& description, int amount);
+        Item(const std::string& name, const std::string& description, int weight);
 
         // Getters
         std::string get_name() const;
         std::string get_description() const;
-        int get_amount() const;
+        int get_weight() const;
 
         // Overloaded stream operator
         friend std::ostream& operator<<(std::ostream& os, const Item& item);
@@ -20,7 +20,7 @@ class Item {
     private:
         std::string name;
         std::string description;
-        int amount;
+        int weight;
 };
 
 #endif
