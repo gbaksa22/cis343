@@ -125,27 +125,6 @@ void Game::create_world() {
     constructionSite.add_location("East", &doofenshmirtzEvilInc);
 
     doofenshmirtzEvilInc.add_location("West", &constructionSite);
-    flynnFletcherResidence.add_location("North", &backyardWorkshop);
-    flynnFletcherResidence.add_location("South", &danvillePark);
-    flynnFletcherResidence.add_location("West", &baljeetHouse);
-    flynnFletcherResidence.add_location("East", &constructionSite);
-
-    backyardWorkshop.add_location("North", &secretLair);
-    backyardWorkshop.add_location("South", &flynnFletcherResidence);
-
-    secretLair.add_location("South", &backyardWorkshop);
-
-    danvillePark.add_location("North", &flynnFletcherResidence);
-
-    baljeetHouse.add_location("West", &bufordHouse);
-    baljeetHouse.add_location("East", &flynnFletcherResidence);
-
-    bufordHouse.add_location("East", &baljeetHouse);
-
-    constructionSite.add_location("West", &flynnFletcherResidence);
-    constructionSite.add_location("East", &doofenshmirtzEvilInc);
-
-    doofenshmirtzEvilInc.add_location("West", &constructionSite);
 
     // Store Locations in Vector
     locations.push_back(flynnFletcherResidence);
