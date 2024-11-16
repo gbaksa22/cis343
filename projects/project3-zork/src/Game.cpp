@@ -352,19 +352,19 @@ void Game::talk(std::vector<std::string> target) {
     // Provide the prompt based on the current level
     switch (level) {
         case 1:
-            std::cout << "Hey, could you grab the blowtorch? It’s the one with the bright orange flame! We’ll need it for some heavy-duty metalwork.\n";
+            std::cout << "Hey, could you grab the blowtorch? It's the one with the bright orange flame! We'll need it for some heavy-duty metalwork.\n";
             break;
         case 2:
-            std::cout << "Next, we’re going to need Buford’s chunky peanut butter. Don’t ask why—it just works!\n";
+            std::cout << "Next, we're going to need Buford's chunky peanut butter. Don't ask why—it just works!\n";
             break;
         case 3:
-            std::cout << "Now, I could use a wrench. It’s the one that’s just the right size for some big bolts!\n";
+            std::cout << "Now, I could use a wrench. It's the one that's just the right size for some big bolts!\n";
             break;
         case 4:
-            std::cout << "Could you find the Robo Machine? It’s got all sorts of gadgets and a friendly little beep.\n";
+            std::cout << "Could you find the Robo Machine? It's got all sorts of gadgets and a friendly little beep.\n";
             break;
         case 5:
-            std::cout << "Next up, I’ll need a computer chip. It’s small but super powerful—key to controlling the roller coaster.\n";
+            std::cout << "Next up, I'll need a computer chip. It's small but super powerful—key to controlling the roller coaster.\n";
             break;
         case 6:
             std::cout << "Finally, could you bring over the blueprints? They have all our measurements and designs!\n";
@@ -400,22 +400,22 @@ void Game::give(std::vector<std::string> target) {
     if (item_name != required_items[level - 1]) {
         switch (level) {
             case 1:
-                std::cout << "Hmm, that’s not quite it. I need the blowtorch to get started!\n";
+                std::cout << "Hmm, that's not quite it. I need the blowtorch to get started!\n";
                 break;
             case 2:
                 std::cout << "Close, but no peanut butter! Could you bring that over?\n";
                 break;
             case 3:
-                std::cout << "That’s not quite right. I still need the wrench to get things tightened down.\n";
+                std::cout << "That's not quite right. I still need the wrench to get things tightened down.\n";
                 break;
             case 4:
-                std::cout << "Hmm, that’s not the Robo Machine. Try again—it’s got to be around here somewhere.\n";
+                std::cout << "Hmm, that's not the Robo Machine. Try again—it's got to be around here somewhere.\n";
                 break;
             case 5:
                 std::cout << "Not quite. I need the computer chip for the controls. Could you look again?\n";
                 break;
             case 6:
-                std::cout << "That’s not the blueprints. I still need them to get everything in order.\n";
+                std::cout << "That's not the blueprints. I still need them to get everything in order.\n";
                 break;
         }
         return;
@@ -428,7 +428,7 @@ void Game::give(std::vector<std::string> target) {
                                       });
 
     if (item_iterator == inventory.end()) {
-        std::cout << "You don’t have the " << item_name << " in your inventory.\n";
+        std::cout << "You don't have the " << item_name << " in your inventory.\n";
         return;
     }
 
