@@ -345,7 +345,7 @@ void Game::drop(std::vector<std::string> target) {
 
     // Find the item in the player's inventory using its full name.
     auto item_iterator = std::find_if(inventory.begin(), inventory.end(),
-                                      [&](const Item& item) {
+                                      [&](Item& item) {
                                           return item.get_name() == item_name;
                                       });
 
@@ -355,11 +355,11 @@ void Game::drop(std::vector<std::string> target) {
         return;
     }
 
-    // Get the reference to the found item.
-    Item dropped_item = *item_iterator; // Make a copy of the item to preserve its data.
+    // Get a reference to the found item (do not make a copy).
+    Item& dropped_item = *item_iterator;
 
-    // Add the item back to the current location's inventory.
-    current_location->add_item(dropped_item);
+    // Add the item back to the current location's inventory using a reference wrapper.
+    current_location->add_item(std::ref(dropped_item));
     std::cout << "Debug - Dropped item: " << dropped_item.get_name() << " (Weight: " << dropped_item.get_weight() << ")\n";
 
     // Remove the item from the player's inventory and update the carried weight.
@@ -369,6 +369,7 @@ void Game::drop(std::vector<std::string> target) {
 
     std::cout << "You have dropped the '" << dropped_item.get_name() << "' (Weight: " << item_weight << ").\n";
 }
+
 
 void Game::show_inventory(std::vector<std::string> target) {
     if (inventory.empty()) {
