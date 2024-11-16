@@ -362,7 +362,7 @@ void Game::drop(std::vector<std::string> target) {
 
     // Add the item back to the current location's inventory using a reference wrapper.
     current_location->add_item(std::ref(dropped_item));
-    std::cout << "Debug - Dropped item: " << dropped_item.get_name() << " (Weight: " << dropped_item.get_weight() << ")\n";
+    //std::cout << "Debug - Dropped item: " << dropped_item.get_name() << " (Weight: " << dropped_item.get_weight() << ")\n";
 
     // Remove the item from the player's inventory and update the carried weight.
     int item_weight = dropped_item.get_weight();
