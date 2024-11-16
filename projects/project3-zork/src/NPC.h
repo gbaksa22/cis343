@@ -38,6 +38,9 @@ public:
     // Stop audio that is currently playing
     void stop_audio();
 
+    void init();   // Initialize audio resources for the NPC
+    void cleanup(); // Clean up audio resources for the NPC
+
 
 private:
     std::string name;

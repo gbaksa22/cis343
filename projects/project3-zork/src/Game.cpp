@@ -3,7 +3,34 @@
 #include <sstream>
 #include <sstream>
 #include <algorithm>
+#include <csignal>
+/*
+TODO:
 
+Add audio for game class:
+- play_audio
+- stop_audio
+- init()
+- cleanup()
+
+
+
+
+
+*/
+//TODO Add audio manager for game 
+
+
+// Global variable for accessing the game instance
+Game* gameInstance = nullptr;
+
+// Signal handler for SIGINT (Ctrl+C)
+void handle_signal(int signal) {
+    if (signal == SIGINT && gameInstance != nullptr) {
+        std::cout << "\nCtrl+C detected. Exiting the game...\n";
+        gameInstance->quit({}); // Call the quit command
+    }
+}
 
 // Constructor
 Game::Game()
@@ -89,6 +116,9 @@ void Game::play() {
 
 // Create the World
 void Game::create_world() {
+    gameInstance = this; // Set the global game instance
+    std::signal(SIGINT, handle_signal); // Register the signal handler
+
     // Add NPCs to Locations
     flynnFletcherResidence.add_npc(candace);
     backyardWorkshop.add_npc(phineas);
@@ -147,8 +177,12 @@ void Game::create_world() {
     candace.add_audio_file("Down Down Down", "./audio/npcs/candace/candace4-down-down-down.wav");
     candace.add_audio_file("Telling Mom", "./audio/npcs/candace/candace5-telling-mom.wav");
 
+    candace.init();
+
     constructionWorker.add_audio_file("A Little Young", "./audio/npcs/construction-worker/construction1-a-little-young.wav");
     constructionWorker.add_audio_file("Crayon Forms", "./audio/npcs/construction-worker/construction2-crayon-forms.wav");
+
+    constructionWorker.init();
 
     drDoofenshmirtz.add_audio_file("Unexpected Surprise", "./audio/npcs/doofenshmirtz/doof1-unexpected-surprise.wav");
     drDoofenshmirtz.add_audio_file("Evil Plan", "./audio/npcs/doofenshmirtz/doof2-evil-plan.wav");
@@ -156,11 +190,15 @@ void Game::create_world() {
     drDoofenshmirtz.add_audio_file("Getting Warmer", "./audio/npcs/doofenshmirtz/doof4-getting-warmer.wav");
     drDoofenshmirtz.add_audio_file("Red Button", "./audio/npcs/doofenshmirtz/doof5-red-button.wav");
 
+    drDoofenshmirtz.init();
+
     majorMonogram.add_audio_file("Tinfoil", "./audio/npcs/monogram/monogram1-tinfoil.wav");
     majorMonogram.add_audio_file("Stop to It", "./audio/npcs/monogram/monogram2-stop-to-it.wav");
     majorMonogram.add_audio_file("Cover", "./audio/npcs/monogram/monogram3-cover.wav");
     majorMonogram.add_audio_file("Counting on You", "./audio/npcs/monogram/monogram4-counting-on-you.wav");
     majorMonogram.add_audio_file("Good Luck", "./audio/npcs/monogram/monogram5-good-luck.wav");
+
+    majorMonogram.init();
 
     // Initialize audio files for Phineas
     phineas.add_audio_file("Blowtorch Prompt", "./audio/npcs/phineas/phineas1-blowtorch/blowtorch-prompt.wav");
@@ -192,6 +230,8 @@ void Game::create_world() {
     phineas.add_audio_file("Blueprints Correct", "./audio/npcs/phineas/phineas6-blueprints/blueprints-correct.wav");
     phineas.add_audio_file("Blueprints Incorrect", "./audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
     phineas.add_audio_file("Blueprints Waiting", "./audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
+
+    phineas.init();
 
     current_location->set_visited();
 }
@@ -430,17 +470,20 @@ void Game::talk(std::vector<std::string> target) {
         }
     } else {
         // For all other NPCs, play the next audio in their sequence
-        candace.play_audio("In Charge");
-        std::cout << "Press Enter to stop and play the next sound...";
-        std::cin.get();
+        found_npc.play_next();
     }
 }
 
 
 
 void Game::quit(std::vector<std::string> target) {
-    std::cout << "Quitting the game.\n";
     game_in_progress = false;
+    phineas.cleanup();
+    candace.cleanup();
+    drDoofenshmirtz.cleanup();
+    majorMonogram.cleanup();
+    constructionWorker.cleanup();
+    std::cout << "Quitting the game.\n";
 }
 
 

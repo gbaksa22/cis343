@@ -37,8 +37,6 @@ void AudioManager::playSound(const std::string& soundPath) {
             std::cerr << "Failed to play sound: " << soundPath << std::endl;
             ma_sound_uninit(&currentSound);
             currentSoundInitialized = false;
-        } else {
-            std::cout << "Playing: " << soundPath << std::endl;
         }
     }
 }

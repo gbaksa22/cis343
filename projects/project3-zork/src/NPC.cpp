@@ -5,8 +5,7 @@
 NPC::NPC(const std::string& name, const std::string& description)
     : name(name.empty() ? "Unnamed NPC" : name),
       description(description.empty() ? "No description" : description),
-      audioManager(), // Initialize AudioManager
-      index(0) // Initialize index to 0
+      audioManager() // Initialize AudioManager
 {
     if (name.empty()) {
         std::cout << "Error: NPC name is blank.\n";
@@ -15,6 +14,20 @@ NPC::NPC(const std::string& name, const std::string& description)
         std::cout << "Error: NPC description is blank.\n";
     }
 }
+
+// Initialize audio resources for the NPC
+void NPC::init() {
+    if (!audioManager.init()) {
+        std::cerr << "Error: Failed to initialize AudioManager for NPC: " << name << "\n";
+    }
+}
+
+// Clean up audio resources for the NPC
+void NPC::cleanup() {
+    audioManager.cleanup();  // Call AudioManager's cleanup function
+    std::cout << "Cleaned up audio resources for NPC: " << name << "\n";
+}
+
 
 // Getters
 std::string NPC::get_name() const {
@@ -58,15 +71,14 @@ void NPC::add_audio_file(const std::string& name, const std::string& filePath) {
 
 // Play audio by name
 void NPC::play_audio(const std::string& name) {
-    if (!audioManager.init()) {  // Ensure AudioManager is initialized
-        std::cerr << "Error: Failed to initialize AudioManager for NPC: " << name << "\n";
-        return;
-    }
-
     for (const auto& entry : audioFiles) {
         if (entry.name == name) {
             audioManager.playSound(entry.path);  // Play the audio file
-            std::cout << "Playing sound: " << name << "\n";
+            std::cout << "Press Enter to stop talking to " << get_name() << ".\n";
+            std::cin.get();
+        
+            // Stop the current sound before moving to the next one
+            audioManager.stopSound();
             return;
         }
     }
@@ -86,15 +98,22 @@ void NPC::play_next() {
         std::cout << "No audio files available for NPC: " << name << "\n";
         return;
     }
-    // Play the audio file at the current index
+
+    // Ensure the index is within the valid range
+    if (index < 0 || index >= static_cast<int>(audioFiles.size())) {
+        std::cerr << "Error: Invalid index (" << index << ") for NPC: " << name << ". Resetting to 0.\n";
+        index = 0;
+    }
+
+    // Get the current audio file
     const auto& currentAudio = audioFiles[index];
-    audioManager.playSound(currentAudio.path);
-    std::cout << "Playing next sound: " << currentAudio.name << " for NPC: " << name << "\n";
+
+    // Play the sound without return value check (since playSound returns void)
+    play_audio(currentAudio.name);
 
     // Increment the index and wrap around if needed
     index = (index + 1) % audioFiles.size();
 }
-
 
 // Helper function to get all audio paths for AudioManager initialization
 std::vector<std::string> NPC::get_audio_paths() const {

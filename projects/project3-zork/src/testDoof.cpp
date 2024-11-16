@@ -38,7 +38,7 @@ int main() {
     }
 
     // Test playing a specific sound by name
-    doof.play_audio("Evil Plan", audioManager);  // Play by name
+    doof.play_audio("Evil Plan");  // Play by name
     std::cout << "Press Enter to stop the sound...";
     std::cin.get();
     audioManager.stopSound();
