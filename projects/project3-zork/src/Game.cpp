@@ -13,12 +13,24 @@ Add audio for game class:
 - init()
 - cleanup()
 
+Use game class audio for start game
+- theme song
+- i know what we're gonna do today
 
+Use game class audio for end game
+- ladies and gentlemen - coolest coaster ever
+- ride roller coaster
 
+Use game class audio for entering doofs room and secret lair
+- doobee dobee doo
+- doofenshmirtz evil incorporated
 
+Aliases for directions
+- n, e, s, w
 
+Make it so case doesn't matter
+- use a lowercase() function
 */
-//TODO Add audio manager for game 
 
 
 // Global variable for accessing the game instance
@@ -506,21 +518,27 @@ void Game::give(std::vector<std::string> target) {
         switch (level) {
             case 1:
                 std::cout << "Hmm, that's not quite it. I need the blowtorch to get started!\n";
+                phineas.play_audio("Blowtorch Incorrect");
                 break;
             case 2:
                 std::cout << "Close, but no peanut butter! Could you bring that over?\n";
+                phineas.play_audio("Peanut Butter Incorrect");
                 break;
             case 3:
                 std::cout << "That's not quite right. I still need the wrench to get things tightened down.\n";
+                phineas.play_audio("Wrench Incorrect");
                 break;
             case 4:
                 std::cout << "Hmm, that's not the Robo Machine. Try again—it's got to be around here somewhere.\n";
+                phineas.play_audio("Robo Machine Incorrect");
                 break;
             case 5:
                 std::cout << "Not quite. I need the computer chip for the controls. Could you look again?\n";
+                phineas.play_audio("Computer Chip Incorrect");
                 break;
             case 6:
                 std::cout << "That's not the blueprints. I still need them to get everything in order.\n";
+                phineas.play_audio("Blueprints Incorrect");
                 break;
         }
         return;
@@ -542,25 +560,31 @@ void Game::give(std::vector<std::string> target) {
     inventory.erase(item_iterator);
     weight -= item_weight;
 
-    // Print the correct message based on the current level
+    // Print the correct message and play audio based on the current level
     switch (level) {
         case 1:
             std::cout << "Awesome! This blowtorch is exactly what we need. Thanks a bunch!\n";
+            phineas.play_audio("Blowtorch Correct");
             break;
         case 2:
             std::cout << "Perfect! Peanut butter is always the secret ingredient. Thanks for grabbing it!\n";
+            phineas.play_audio("Peanut Butter Correct");
             break;
         case 3:
             std::cout << "You got it! This wrench is exactly what we need to tighten things up.\n";
+            phineas.play_audio("Wrench Correct");
             break;
         case 4:
             std::cout << "Yes! The Robo Machine is here and ready to assemble. Thanks for finding it!\n";
+            phineas.play_audio("Robo Machine Correct");
             break;
         case 5:
             std::cout << "Perfect! This computer chip is just what we need. Thanks!\n";
+            phineas.play_audio("Computer Chip Correct");
             break;
         case 6:
             std::cout << "Awesome! Now we have everything we need to bring this roller coaster to life!\n";
+            phineas.play_audio("Blueprints Correct");
             break;
     }
 
@@ -569,10 +593,12 @@ void Game::give(std::vector<std::string> target) {
 
     // Check if the player has completed the game
     if (level > 6) {
+        phineas.play_audio("Roller Coaster Complete"); // Optional finale audio
         std::cout << "Congratulations! You've given all the items to Phineas. The roller coaster is complete! You win the game!\n";
         game_in_progress = false;
     }
 }
+
 
 
 
