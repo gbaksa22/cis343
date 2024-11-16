@@ -161,6 +161,38 @@ void Game::create_world() {
     majorMonogram.add_audio_file("Cover", "../audio/npcs/monogram/monogram3-cover.wav");
     majorMonogram.add_audio_file("Counting on You", "../audio/npcs/monogram/monogram4-counting-on-you.wav");
     majorMonogram.add_audio_file("Good Luck", "../audio/npcs/monogram/monogram5-good-luck.wav");
+
+    // Initialize audio files for Phineas
+    phineas.add_audio_file("Blowtorch Prompt", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-prompt.wav");
+    phineas.add_audio_file("Blowtorch Correct", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-correct.wav");
+    phineas.add_audio_file("Blowtorch Incorrect", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-incorrect.wav");
+    phineas.add_audio_file("Blowtorch Waiting", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-waiting.wav");
+
+    phineas.add_audio_file("Peanut Butter Prompt", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-prompt.wav");
+    phineas.add_audio_file("Peanut Butter Correct", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-correct.wav");
+    phineas.add_audio_file("Peanut Butter Incorrect", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-incorrect.wav");
+    phineas.add_audio_file("Peanut Butter Waiting", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-waiting.wav");
+
+    phineas.add_audio_file("Wrench Prompt", "../audio/npcs/phineas/phineas3-wrench/wrench-prompt.wav");
+    phineas.add_audio_file("Wrench Correct", "../audio/npcs/phineas/phineas3-wrench/wrench-correct.wav");
+    phineas.add_audio_file("Wrench Incorrect", "../audio/npcs/phineas/phineas3-wrench/wrench-incorrect.wav");
+    phineas.add_audio_file("Wrench Waiting", "../audio/npcs/phineas/phineas3-wrench/wrench-waiting.wav");
+
+    phineas.add_audio_file("Robo Machine Prompt", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-prompt.wav");
+    phineas.add_audio_file("Robo Machine Correct", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-correct.wav");
+    phineas.add_audio_file("Robo Machine Incorrect", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-incorrect.wav");
+    phineas.add_audio_file("Robo Machine Waiting", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-waiting.wav");
+
+    phineas.add_audio_file("Computer Chip Prompt", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-prompt.wav");
+    phineas.add_audio_file("Computer Chip Correct", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-correct.wav");
+    phineas.add_audio_file("Computer Chip Incorrect", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-incorrect.wav");
+    phineas.add_audio_file("Computer Chip Waiting", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-waiting.wav");
+
+    phineas.add_audio_file("Blueprints Prompt", "../audio/npcs/phineas/phineas6-blueprints/blueprints-prompt.wav");
+    phineas.add_audio_file("Blueprints Correct", "../audio/npcs/phineas/phineas6-blueprints/blueprints-correct.wav");
+    phineas.add_audio_file("Blueprints Incorrect", "../audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
+    phineas.add_audio_file("Blueprints Waiting", "../audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
+
     current_location->set_visited();
 }
 
@@ -489,6 +521,7 @@ void Game::show_help() {
 std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup_commands() {
     std::map<std::string, std::function<void(std::vector<std::string>)>> commands;
 
+    // Adding full commands
     commands["help"] = [this](std::vector<std::string> args) { this->show_help(); }; 
     commands["go"] = [this](std::vector<std::string> args) { this->go(args); }; 
     commands["look"] = [this](std::vector<std::string> args) { this->look(args); };
@@ -499,6 +532,36 @@ std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup
     commands["meet"] = [this](std::vector<std::string> args) { this->meet(args); };
     commands["talk"] = [this](std::vector<std::string> args) { this->talk(args); };
     commands["give"] = [this](std::vector<std::string> args) { this->give(args); };
+
+    // Aliases
+    commands["h"] = commands["help"];
+    commands["?"] = commands["help"];
+
+    commands["g"] = commands["go"];
+    commands["cd"] = commands["go"];
+
+    commands["l"] = commands["look"];
+    commands["ls"] = commands["look"];
+
+    commands["c"] = commands["take"];
+    commands["collect"] = commands["take"];
+    commands["grab"] = commands["take"];
+
+    commands["d"] = commands["drop"];
+    commands["discard"] = commands["drop"];
+
+    commands["i"] = commands["inventory"];
+
+    commands["q"] = commands["quit"];
+    commands["exit"] = commands["quit"];
+    commands["x"] = commands["quit"];
+
+
+    commands["m"] = commands["meet"];
+    commands["o"] = commands["observe"];
+
+    commands["t"] = commands["talk"];
+    commands["v"] = commands["give"]; // Using 'v' for 'give' to avoid conflicts
 
     return commands;
 }
