@@ -141,57 +141,57 @@ void Game::create_world() {
     current_location = &flynnFletcherResidence;
 
     // Initialize audio files for each NPC
-    candace.add_audio_file("In Charge", "../audio/npcs/candace/candace1-in-charge.wav");
-    candace.add_audio_file("Can't Wait", "../audio/npcs/candace/candace2-cant-wait.wav");
-    candace.add_audio_file("Roller Coaster", "../audio/npcs/candace/candace3-roller-coaster.wav");
-    candace.add_audio_file("Down Down Down", "../audio/npcs/candace/candace4-down-down-down.wav");
-    candace.add_audio_file("Telling Mom", "../audio/npcs/candace/candace5-telling-mom.wav");
+    candace.add_audio_file("In Charge", "./audio/npcs/candace/candace1-in-charge.wav");
+    candace.add_audio_file("Can't Wait", "./audio/npcs/candace/candace2-cant-wait.wav");
+    candace.add_audio_file("Roller Coaster", "./audio/npcs/candace/candace3-roller-coaster.wav");
+    candace.add_audio_file("Down Down Down", "./audio/npcs/candace/candace4-down-down-down.wav");
+    candace.add_audio_file("Telling Mom", "./audio/npcs/candace/candace5-telling-mom.wav");
 
-    constructionWorker.add_audio_file("A Little Young", "../audio/npcs/construction-worker/construction1-a-little-young.wav");
-    constructionWorker.add_audio_file("Crayon Forms", "../audio/npcs/construction-worker/construction2-crayon-forms.wav");
+    constructionWorker.add_audio_file("A Little Young", "./audio/npcs/construction-worker/construction1-a-little-young.wav");
+    constructionWorker.add_audio_file("Crayon Forms", "./audio/npcs/construction-worker/construction2-crayon-forms.wav");
 
-    drDoofenshmirtz.add_audio_file("Unexpected Surprise", "../audio/npcs/doofenshmirtz/doof1-unexpected-surprise.wav");
-    drDoofenshmirtz.add_audio_file("Evil Plan", "../audio/npcs/doofenshmirtz/doof2-evil-plan.wav");
-    drDoofenshmirtz.add_audio_file("Pizza Delivery Guy", "../audio/npcs/doofenshmirtz/doof3-pizza-delivery-guy.wav");
-    drDoofenshmirtz.add_audio_file("Getting Warmer", "../audio/npcs/doofenshmirtz/doof4-getting-warmer.wav");
-    drDoofenshmirtz.add_audio_file("Red Button", "../audio/npcs/doofenshmirtz/doof5-red-button.wav");
+    drDoofenshmirtz.add_audio_file("Unexpected Surprise", "./audio/npcs/doofenshmirtz/doof1-unexpected-surprise.wav");
+    drDoofenshmirtz.add_audio_file("Evil Plan", "./audio/npcs/doofenshmirtz/doof2-evil-plan.wav");
+    drDoofenshmirtz.add_audio_file("Pizza Delivery Guy", "./audio/npcs/doofenshmirtz/doof3-pizza-delivery-guy.wav");
+    drDoofenshmirtz.add_audio_file("Getting Warmer", "./audio/npcs/doofenshmirtz/doof4-getting-warmer.wav");
+    drDoofenshmirtz.add_audio_file("Red Button", "./audio/npcs/doofenshmirtz/doof5-red-button.wav");
 
-    majorMonogram.add_audio_file("Tinfoil", "../audio/npcs/monogram/monogram1-tinfoil.wav");
-    majorMonogram.add_audio_file("Stop to It", "../audio/npcs/monogram/monogram2-stop-to-it.wav");
-    majorMonogram.add_audio_file("Cover", "../audio/npcs/monogram/monogram3-cover.wav");
-    majorMonogram.add_audio_file("Counting on You", "../audio/npcs/monogram/monogram4-counting-on-you.wav");
-    majorMonogram.add_audio_file("Good Luck", "../audio/npcs/monogram/monogram5-good-luck.wav");
+    majorMonogram.add_audio_file("Tinfoil", "./audio/npcs/monogram/monogram1-tinfoil.wav");
+    majorMonogram.add_audio_file("Stop to It", "./audio/npcs/monogram/monogram2-stop-to-it.wav");
+    majorMonogram.add_audio_file("Cover", "./audio/npcs/monogram/monogram3-cover.wav");
+    majorMonogram.add_audio_file("Counting on You", "./audio/npcs/monogram/monogram4-counting-on-you.wav");
+    majorMonogram.add_audio_file("Good Luck", "./audio/npcs/monogram/monogram5-good-luck.wav");
 
     // Initialize audio files for Phineas
-    phineas.add_audio_file("Blowtorch Prompt", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-prompt.wav");
-    phineas.add_audio_file("Blowtorch Correct", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-correct.wav");
-    phineas.add_audio_file("Blowtorch Incorrect", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-incorrect.wav");
-    phineas.add_audio_file("Blowtorch Waiting", "../audio/npcs/phineas/phineas1-blowtorch/blowtorch-waiting.wav");
+    phineas.add_audio_file("Blowtorch Prompt", "./audio/npcs/phineas/phineas1-blowtorch/blowtorch-prompt.wav");
+    phineas.add_audio_file("Blowtorch Correct", "./audio/npcs/phineas/phineas1-blowtorch/blowtorch-correct.wav");
+    phineas.add_audio_file("Blowtorch Incorrect", "./audio/npcs/phineas/phineas1-blowtorch/blowtorch-incorrect.wav");
+    phineas.add_audio_file("Blowtorch Waiting", "./audio/npcs/phineas/phineas1-blowtorch/blowtorch-waiting.wav");
 
-    phineas.add_audio_file("Peanut Butter Prompt", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-prompt.wav");
-    phineas.add_audio_file("Peanut Butter Correct", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-correct.wav");
-    phineas.add_audio_file("Peanut Butter Incorrect", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-incorrect.wav");
-    phineas.add_audio_file("Peanut Butter Waiting", "../audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-waiting.wav");
+    phineas.add_audio_file("Peanut Butter Prompt", "./audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-prompt.wav");
+    phineas.add_audio_file("Peanut Butter Correct", "./audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-correct.wav");
+    phineas.add_audio_file("Peanut Butter Incorrect", "./audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-incorrect.wav");
+    phineas.add_audio_file("Peanut Butter Waiting", "./audio/npcs/phineas/phineas2-peanut-butter/peanut-butter-waiting.wav");
 
-    phineas.add_audio_file("Wrench Prompt", "../audio/npcs/phineas/phineas3-wrench/wrench-prompt.wav");
-    phineas.add_audio_file("Wrench Correct", "../audio/npcs/phineas/phineas3-wrench/wrench-correct.wav");
-    phineas.add_audio_file("Wrench Incorrect", "../audio/npcs/phineas/phineas3-wrench/wrench-incorrect.wav");
-    phineas.add_audio_file("Wrench Waiting", "../audio/npcs/phineas/phineas3-wrench/wrench-waiting.wav");
+    phineas.add_audio_file("Wrench Prompt", "./audio/npcs/phineas/phineas3-wrench/wrench-prompt.wav");
+    phineas.add_audio_file("Wrench Correct", "./audio/npcs/phineas/phineas3-wrench/wrench-correct.wav");
+    phineas.add_audio_file("Wrench Incorrect", "./audio/npcs/phineas/phineas3-wrench/wrench-incorrect.wav");
+    phineas.add_audio_file("Wrench Waiting", "./audio/npcs/phineas/phineas3-wrench/wrench-waiting.wav");
 
-    phineas.add_audio_file("Robo Machine Prompt", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-prompt.wav");
-    phineas.add_audio_file("Robo Machine Correct", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-correct.wav");
-    phineas.add_audio_file("Robo Machine Incorrect", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-incorrect.wav");
-    phineas.add_audio_file("Robo Machine Waiting", "../audio/npcs/phineas/phineas4-robo-machine/robo-machine-waiting.wav");
+    phineas.add_audio_file("Robo Machine Prompt", "./audio/npcs/phineas/phineas4-robo-machine/robo-machine-prompt.wav");
+    phineas.add_audio_file("Robo Machine Correct", "./audio/npcs/phineas/phineas4-robo-machine/robo-machine-correct.wav");
+    phineas.add_audio_file("Robo Machine Incorrect", "./audio/npcs/phineas/phineas4-robo-machine/robo-machine-incorrect.wav");
+    phineas.add_audio_file("Robo Machine Waiting", "./audio/npcs/phineas/phineas4-robo-machine/robo-machine-waiting.wav");
 
-    phineas.add_audio_file("Computer Chip Prompt", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-prompt.wav");
-    phineas.add_audio_file("Computer Chip Correct", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-correct.wav");
-    phineas.add_audio_file("Computer Chip Incorrect", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-incorrect.wav");
-    phineas.add_audio_file("Computer Chip Waiting", "../audio/npcs/phineas/phineas5-computer-chip/computer-chip-waiting.wav");
+    phineas.add_audio_file("Computer Chip Prompt", "./audio/npcs/phineas/phineas5-computer-chip/computer-chip-prompt.wav");
+    phineas.add_audio_file("Computer Chip Correct", "./audio/npcs/phineas/phineas5-computer-chip/computer-chip-correct.wav");
+    phineas.add_audio_file("Computer Chip Incorrect", "./audio/npcs/phineas/phineas5-computer-chip/computer-chip-incorrect.wav");
+    phineas.add_audio_file("Computer Chip Waiting", "./audio/npcs/phineas/phineas5-computer-chip/computer-chip-waiting.wav");
 
-    phineas.add_audio_file("Blueprints Prompt", "../audio/npcs/phineas/phineas6-blueprints/blueprints-prompt.wav");
-    phineas.add_audio_file("Blueprints Correct", "../audio/npcs/phineas/phineas6-blueprints/blueprints-correct.wav");
-    phineas.add_audio_file("Blueprints Incorrect", "../audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
-    phineas.add_audio_file("Blueprints Waiting", "../audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
+    phineas.add_audio_file("Blueprints Prompt", "./audio/npcs/phineas/phineas6-blueprints/blueprints-prompt.wav");
+    phineas.add_audio_file("Blueprints Correct", "./audio/npcs/phineas/phineas6-blueprints/blueprints-correct.wav");
+    phineas.add_audio_file("Blueprints Incorrect", "./audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
+    phineas.add_audio_file("Blueprints Waiting", "./audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
 
     current_location->set_visited();
 }
@@ -375,37 +375,67 @@ void Game::talk(std::vector<std::string> target) {
 
     std::string npc_name = target[0];
 
-    // Check if the player is talking to Phineas at the Backyard Workshop
-    if (npc_name != "Phineas" || current_location->get_name() != "Backyard Workshop") {
-        std::cout << "There's no one here by that name, or you're not at the Backyard Workshop.\n";
+    // Check if the current location has any NPCs
+    const auto& npcs_in_location = current_location->get_npcs();
+    if (npcs_in_location.empty()) {
+        std::cout << "There are no NPCs in this location.\n";
         return;
     }
 
-    // Provide the prompt based on the current level
-    switch (level) {
-        case 1:
-            std::cout << "Hey, could you grab the blowtorch? It's the one with the bright orange flame! We'll need it for some heavy-duty metalwork.\n";
-            break;
-        case 2:
-            std::cout << "Next, we're going to need Buford's chunky peanut butter. Don't ask why—it just works!\n";
-            break;
-        case 3:
-            std::cout << "Now, I could use a wrench. It's the one that's just the right size for some big bolts!\n";
-            break;
-        case 4:
-            std::cout << "Could you find the Robo Machine? It's got all sorts of gadgets and a friendly little beep.\n";
-            break;
-        case 5:
-            std::cout << "Next up, I'll need a computer chip. It's small but super powerful—key to controlling the roller coaster.\n";
-            break;
-        case 6:
-            std::cout << "Finally, could you bring over the blueprints? They have all our measurements and designs!\n";
-            break;
-        default:
-            std::cout << "We have everything we need! Let's build the roller coaster!\n";
-            break;
+    // Find the NPC in the current location
+    auto npc_it = std::find_if(npcs_in_location.begin(), npcs_in_location.end(),
+                               [&](const std::reference_wrapper<NPC>& npc_ref) {
+                                   return npc_ref.get().get_name() == npc_name;
+                               });
+
+    if (npc_it == npcs_in_location.end()) {
+        std::cout << "The NPC '" << npc_name << "' is not in this location.\n";
+        return;
+    }
+
+    // Safely access the NPC
+    NPC& found_npc = npc_it->get();
+
+    // Special handling for Phineas
+    if (npc_name == "Phineas") {
+        // Provide the prompt based on the current level
+        switch (level) {
+            case 1:
+                std::cout << "Hey, could you grab the blowtorch? It's the one with the bright orange flame! We'll need it for some heavy-duty metalwork.\n";
+                found_npc.play_audio("Blowtorch Prompt");
+                break;
+            case 2:
+                std::cout << "Next, we're going to need Buford's chunky peanut butter. Don't ask why—it just works!\n";
+                found_npc.play_audio("Peanut Butter Prompt");
+                break;
+            case 3:
+                std::cout << "Now, I could use a wrench. It's the one that's just the right size for some big bolts!\n";
+                found_npc.play_audio("Wrench Prompt");
+                break;
+            case 4:
+                std::cout << "Could you find the Robo Machine? It's got all sorts of gadgets and a friendly little beep.\n";
+                found_npc.play_audio("Robo Machine Prompt");
+                break;
+            case 5:
+                std::cout << "Next up, I'll need a computer chip. It's small but super powerful—key to controlling the roller coaster.\n";
+                found_npc.play_audio("Computer Chip Prompt");
+                break;
+            case 6:
+                std::cout << "Finally, could you bring over the blueprints? They have all our measurements and designs!\n";
+                found_npc.play_audio("Blueprints Prompt");
+                break;
+            default:
+                std::cout << "We have everything we need! Let's build the roller coaster!\n";
+                break;
+        }
+    } else {
+        // For all other NPCs, play the next audio in their sequence
+        candace.play_audio("In Charge");
+        std::cout << "Press Enter to stop and play the next sound...";
+        std::cin.get();
     }
 }
+
 
 
 void Game::quit(std::vector<std::string> target) {
