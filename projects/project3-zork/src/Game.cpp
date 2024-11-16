@@ -243,6 +243,8 @@ void Game::create_world() {
     phineas.add_audio_file("Blueprints Incorrect", "./audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
     phineas.add_audio_file("Blueprints Waiting", "./audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
 
+    phineas.add_audio_file("Roller Coaster Start", "./audio/unused/x-phineas/roller-coaster-start.wav");
+
     phineas.init();
 
     current_location->set_visited();
@@ -594,7 +596,7 @@ void Game::give(std::vector<std::string> target) {
 
     // Check if the player has completed the game
     if (level > 6) {
-        phineas.play_audio("Roller Coaster Complete"); // Optional finale audio
+        phineas.play_audio("Roller Coaster Start"); // Optional finale audio
         std::cout << "Congratulations! You've given all the items to Phineas. The roller coaster is complete! You win the game!\n";
         game_in_progress = false;
     }
