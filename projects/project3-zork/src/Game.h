@@ -82,6 +82,10 @@ class Game {
         Item roboMachine;
         Item computerChip;
         Item blueprints;
+        Item catapult;
+        Item inator;
+        Item hook;
+        Item backpack;
 
         AudioManager audioManager; // Internal AudioManager instance
         std::vector<AudioEntry> audioFiles;

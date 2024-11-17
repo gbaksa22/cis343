@@ -7,14 +7,9 @@
 /*
 TODO:
 
-Add random items so we have enough for the rubric
-
 Use game class audio for entering doofs room and secret lair
 - doobee dobee doo
 - doofenshmirtz evil incorporated
-
-Aliases for directions
-- n, e, s, w
 
 Make it so case doesn't matter
 - use a lowercase() function
@@ -54,7 +49,11 @@ Game::Game()
       wrench("Wrench", "A sturdy, well-used wrench that's just the right size for tightening bolts on a big project.", 1),
       roboMachine("Robo Machine", "A robotic assembly tool with multiple appendages and a friendly beep. Essential for assembling complex parts of the roller coaster.", 30),
       computerChip("Computer Chip", "A tiny but powerful computer chip that controls key functions of the roller coaster, packed with high-tech circuitry.", 1),
-      blueprints("Blueprints", "Detailed blueprints with every line and measurement needed to bring Phineas and Ferb's roller coaster vision to life.", 1)
+      blueprints("Blueprints", "Detailed blueprints with every line and measurement needed to bring Phineas and Ferb's roller coaster vision to life.", 1),
+      catapult("Catapult", "A small catapult designed by Phineas and Ferb to launch their pet platypus Perry during one of their wild experiments. It’s surprisingly sturdy and can fling objects far.", 30),
+      inator("Inator Part", "A crucial component from one of Doofenshmirtz's “Inators.” It’s a shiny, metal piece that looks like it belongs in a high-tech device.", 1),
+      hook("Grappling Hook", "A handy tool used by Perry the Platypus in his secret agent missions. It’s a small, retractable hook that can reach high places and secure a strong grip.", 1),
+      backpack("Jet Pack Backpack", "A stylish red-and-white backpack that doubles as a jet pack. It was once used by Isabella and the Fireside Girls in one of their daring rescue missions.", 1)
 {
     create_world();
 }
@@ -133,9 +132,13 @@ void Game::create_world() {
     // Add Items to Locations
     doofenshmirtzEvilInc.add_item(blowtorch);
     bufordHouse.add_item(peanutButter);
+    bufordHouse.add_item(backpack);
     flynnFletcherResidence.add_item(wrench);
+    flynnFletcherResidence.add_item(catapult);
     constructionSite.add_item(roboMachine);
+    constructionSite.add_item(inator);
     secretLair.add_item(computerChip);
+    secretLair.add_item(hook);
     baljeetHouse.add_item(blueprints);
 
     // Set up Neighbors (Link Locations)
@@ -263,6 +266,12 @@ void Game::go(std::vector<std::string> target) {
 
     // Get the direction from the user input (first word in target vector)
     std::string direction = target[0];
+
+    // Convert direction aliases to full names
+    if (direction == "n") direction = "North";
+    else if (direction == "s") direction = "South";
+    else if (direction == "e") direction = "East";
+    else if (direction == "w") direction = "West";
 
     // Check if the direction exists in the current location's neighbors
     auto neighbors = current_location->get_locations();
