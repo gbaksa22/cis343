@@ -7,19 +7,7 @@
 /*
 TODO:
 
-Add audio for game class:
-- play_audio
-- stop_audio
-- init()
-- cleanup()
-
-Use game class audio for start game
-- theme song
-- i know what we're gonna do today
-
-Use game class audio for end game
-- ladies and gentlemen - coolest coaster ever
-- ride roller coaster
+Add random items so we have enough for the rubric
 
 Use game class audio for entering doofs room and secret lair
 - doobee dobee doo
@@ -74,6 +62,10 @@ Game::Game()
 // Main Game Loop
 void Game::play() {
     std::cout << "Starting the Phineas and Ferb Adventure Game...\n";
+    std::cout << "*Theme Song*\n";
+    play_audio("Theme Song");
+    std::cout << "*Phineas and Ferb deciding what they're gonna do today*\n";
+    play_audio("Start Roller Coaster Intro");
     std::cout << "Collect all the necessary parts to build the roller coaster and give them to Phineas in the Backyard Workshop to win the game!\n";
     // Set up commands
     commands = setup_commands();
@@ -243,9 +235,15 @@ void Game::create_world() {
     phineas.add_audio_file("Blueprints Incorrect", "./audio/npcs/phineas/phineas6-blueprints/blueprints-incorrect.wav");
     phineas.add_audio_file("Blueprints Waiting", "./audio/npcs/phineas/phineas6-blueprints/blueprints-waiting.wav");
 
-    phineas.add_audio_file("Roller Coaster Start", "./audio/unused/x-phineas/roller-coaster-start.wav");
-
     phineas.init();
+
+    // Initialize Game Audio Files
+    add_audio_file("Theme Song", "./audio/game/game1-theme-song.wav");
+    add_audio_file("Start Roller Coaster Intro", "./audio/game/game2-start-roller-coaster-intro.wav");
+    add_audio_file("Phineas Coolest Coaster Ever", "./audio/game/game3-phineas-coolest-coaster-ever.wav");
+    add_audio_file("End Roller Coaster", "./audio/game/game4-end-roller-coaster.wav");
+
+    init();
 
     current_location->set_visited();
 }
@@ -596,14 +594,14 @@ void Game::give(std::vector<std::string> target) {
 
     // Check if the player has completed the game
     if (level > 6) {
-        phineas.play_audio("Roller Coaster Start"); // Optional finale audio
+        std::cout << "*Phineas talking about the coolest coaster ever*\n";
+        play_audio("Phineas Coolest Coaster Ever"); // Optional finale audio
+        std::cout << "*Riding the Roller Coaster*\n";
+        play_audio("End Roller Coaster"); // Optional finale audio
         std::cout << "Congratulations! You've given all the items to Phineas. The roller coaster is complete! You win the game!\n";
         game_in_progress = false;
     }
 }
-
-
-
 
 void Game::show_help() {
     std::cout << "Available Commands:\n";
@@ -666,4 +664,53 @@ std::map<std::string, std::function<void(std::vector<std::string>)>> Game::setup
     commands["v"] = commands["give"]; // Using 'v' for 'give' to avoid conflicts
 
     return commands;
+}
+
+// Initialize audio resources
+void Game::init() {
+    if (!audioManager.init()) {
+        std::cerr << "Error: Failed to initialize AudioManager for the Game.\n";
+    }
+}
+
+// Clean up audio resources
+void Game::cleanup() {
+    audioManager.cleanup();  // Call AudioManager's cleanup function
+    std::cout << "Cleaned up audio resources for the Game.\n";
+}
+
+// Add an audio file by name and path
+void Game::add_audio_file(const std::string& name, const std::string& filePath) {
+    audioFiles.push_back({name, filePath});
+    audioManager = AudioManager(get_audio_paths()); // Reinitialize AudioManager with updated paths
+}
+
+void Game::play_audio(const std::string& name) {
+    for (const auto& entry : audioFiles) {
+        if (entry.name == name) {
+            audioManager.playSound(entry.path);  // Play the audio file
+            std::cout << "Press Enter to skip.\n";
+            std::cin.get();
+        
+            // Stop the current sound before moving to the next one
+            audioManager.stopSound();
+            return;
+        }
+    }
+
+    std::cerr << "Error: Audio file with name '" << name << "' not found.\n";
+}
+
+// Stop currently playing audio
+void Game::stop_audio() {
+    audioManager.stopSound();  // Call AudioManager's stopSound function to stop audio
+}
+
+// Helper function to get all audio paths for AudioManager initialization
+std::vector<std::string> Game::get_audio_paths() const {
+    std::vector<std::string> paths;
+    for (const auto& entry : audioFiles) {
+        paths.push_back(entry.path);
+    }
+    return paths;
 }

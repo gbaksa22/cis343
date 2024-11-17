@@ -36,6 +36,20 @@ class Game {
         void quit(std::vector<std::string> target);
         void show_inventory(std::vector<std::string> target);
 
+        void add_audio_file(const std::string& name, const std::string& filePath);
+
+        // Game Audio
+        void play_audio(const std::string& name);
+        void stop_audio();
+        void init();  
+        void cleanup();
+        std::vector<std::string> get_audio_paths() const;
+
+        struct AudioEntry {
+            std::string name;
+            std::string path;
+        };
+
     private:
         //std::map<std::string, void(*)(std::vector<std::string>)> commands;
         std::map<std::string, std::function<void(std::vector<std::string>)>> commands;
@@ -68,6 +82,9 @@ class Game {
         Item roboMachine;
         Item computerChip;
         Item blueprints;
+
+        AudioManager audioManager; // Internal AudioManager instance
+        std::vector<AudioEntry> audioFiles;
 
         int level = 1; // Tracks the current level for giving items in order
         std::vector<std::string> required_items = {
