@@ -50,6 +50,9 @@ class Game {
             std::string path;
         };
 
+        // Converts a string to lowercase
+        static std::string lowercase(const std::string& input);
+
     private:
         //std::map<std::string, void(*)(std::vector<std::string>)> commands;
         std::map<std::string, std::function<void(std::vector<std::string>)>> commands;

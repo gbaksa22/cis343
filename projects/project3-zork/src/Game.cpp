@@ -4,6 +4,7 @@
 #include <sstream>
 #include <algorithm>
 #include <csignal>
+#include <cctype>
 /*
 TODO:
 
@@ -442,7 +443,7 @@ void Game::talk(std::vector<std::string> target) {
         return;
     }
 
-    std::string npc_name = target[0];
+    std::string npc_name = lowercase(target[0]);
 
     // Check if the current location has any NPCs
     const auto& npcs_in_location = current_location->get_npcs();
@@ -454,7 +455,7 @@ void Game::talk(std::vector<std::string> target) {
     // Find the NPC in the current location
     auto npc_it = std::find_if(npcs_in_location.begin(), npcs_in_location.end(),
                                [&](const std::reference_wrapper<NPC>& npc_ref) {
-                                   return npc_ref.get().get_name() == npc_name;
+                                   return lowercase(npc_ref.get().get_name()) == npc_name;
                                });
 
     if (npc_it == npcs_in_location.end()) {
@@ -466,7 +467,7 @@ void Game::talk(std::vector<std::string> target) {
     NPC& found_npc = npc_it->get();
 
     // Special handling for Phineas
-    if (npc_name == "Phineas") {
+    if (npc_name == "phineas") {
         // Provide the prompt based on the current level
         switch (level) {
             case 1:
@@ -730,4 +731,12 @@ std::vector<std::string> Game::get_audio_paths() const {
         paths.push_back(entry.path);
     }
     return paths;
+}
+
+// Converts a string to lowercase
+std::string Game::lowercase(const std::string& input) {
+    std::string result = input;
+    std::transform(result.begin(), result.end(), result.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+    return result;
 }
