@@ -7,10 +7,6 @@
 /*
 TODO:
 
-Use game class audio for entering doofs room and secret lair
-- doobee dobee doo
-- doofenshmirtz evil incorporated
-
 Make it so case doesn't matter
 - use a lowercase() function
 */
@@ -36,7 +32,7 @@ Game::Game()
       baljeetHouse("Baljeet's House", "The home of Baljeet, a science-loving genius. His room is filled with books, gadgets, and the occasional experimental project - a treasure trove for any budding inventor."),
       bufordHouse("Buford's House", "Buford's home is a mix of toughness and sentimental value, with sports memorabilia, odd finds, and, of course, his cherished peanut butter stash."),
       danvillePark("Danville Park", "A lively public park where friends gather, games are played, and adventures await. It's a great place to find hints and extra items while enjoying the outdoors."),
-      secretLair("Secret Lair", "Perry's hidden headquarters filled with high-tech tools and gadgets. Carl is here, providing mission briefings and helpful information about Perry's next steps."),
+      secretLair("Secret Lair", "Perry's hidden headquarters filled with high-tech tools and gadgets. Major Monogram is here, providing mission briefings and helpful information about Perry's next steps."),
 
       phineas("Phineas", "An imaginative and enthusiastic inventor, always excited to bring his big ideas to life. Phineas is the mastermind behind the roller coaster project, always ready to give direction and guidance."),
       candace("Candace", "The determined older sister of Phineas and Ferb. She's always on a mission to bust her brothers' wild schemes but can't help being curious about what they're up to this time."),
@@ -50,9 +46,9 @@ Game::Game()
       roboMachine("Robo Machine", "A robotic assembly tool with multiple appendages and a friendly beep. Essential for assembling complex parts of the roller coaster.", 30),
       computerChip("Computer Chip", "A tiny but powerful computer chip that controls key functions of the roller coaster, packed with high-tech circuitry.", 1),
       blueprints("Blueprints", "Detailed blueprints with every line and measurement needed to bring Phineas and Ferb's roller coaster vision to life.", 1),
-      catapult("Catapult", "A small catapult designed by Phineas and Ferb to launch their pet platypus Perry during one of their wild experiments. It’s surprisingly sturdy and can fling objects far.", 30),
-      inator("Inator Part", "A crucial component from one of Doofenshmirtz's “Inators.” It’s a shiny, metal piece that looks like it belongs in a high-tech device.", 1),
-      hook("Grappling Hook", "A handy tool used by Perry the Platypus in his secret agent missions. It’s a small, retractable hook that can reach high places and secure a strong grip.", 1),
+      catapult("Catapult", "A small catapult designed by Phineas and Ferb to launch their pet platypus Perry during one of their wild experiments. It's surprisingly sturdy and can fling objects far.", 30),
+      inator("Inator Part", "A crucial component from one of Doofenshmirtz's “Inators.” It's a shiny, metal piece that looks like it belongs in a high-tech device.", 1),
+      hook("Grappling Hook", "A handy tool used by Perry the Platypus in his secret agent missions. It's a small, retractable hook that can reach high places and secure a strong grip.", 1),
       backpack("Jet Pack Backpack", "A stylish red-and-white backpack that doubles as a jet pack. It was once used by Isabella and the Fireside Girls in one of their daring rescue missions.", 1)
 {
     create_world();
@@ -245,6 +241,9 @@ void Game::create_world() {
     add_audio_file("Start Roller Coaster Intro", "./audio/game/game2-start-roller-coaster-intro.wav");
     add_audio_file("Phineas Coolest Coaster Ever", "./audio/game/game3-phineas-coolest-coaster-ever.wav");
     add_audio_file("End Roller Coaster", "./audio/game/game4-end-roller-coaster.wav");
+    add_audio_file("Agent P Jingle", "./audio/locations/agent-p-jingle.wav");
+    add_audio_file("Doofenshmirtz Evil Incorporated Jingle", "./audio/locations/doofenshmirtz-evil-incorporated-jingle.wav");
+
 
     init();
 
@@ -283,6 +282,14 @@ void Game::go(std::vector<std::string> target) {
 
         // Print the new location's name and description
         std::cout << "You go " << direction << " and arrive at " << current_location->get_name() << ".\n";
+        if (current_location->get_name() == "Secret Lair") {
+            std::cout << "Doo bee doo bee doo ba doo...\n";
+            play_audio("Agent P Jingle");
+        } else if (current_location->get_name() == "Doofenshmirtz Evil Incorporated"){
+            std::cout << "*Doofenshmirtz Evil Incorporated Jingle*\n";
+            play_audio("Doofenshmirtz Evil Incorporated Jingle");
+
+        }
         std::cout << current_location->get_description() << "\n";
     } else {
         // Direction is not valid
@@ -505,6 +512,7 @@ void Game::quit(std::vector<std::string> target) {
     drDoofenshmirtz.cleanup();
     majorMonogram.cleanup();
     constructionWorker.cleanup();
+    cleanup();
     std::cout << "Quitting the game.\n";
 }
 
