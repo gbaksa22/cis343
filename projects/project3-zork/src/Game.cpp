@@ -5,13 +5,6 @@
 #include <algorithm>
 #include <csignal>
 #include <cctype>
-/*
-TODO:
-
-Make it so case doesn't matter
-- use a lowercase() function
-*/
-
 
 // Global variable for accessing the game instance
 Game* gameInstance = nullptr;
