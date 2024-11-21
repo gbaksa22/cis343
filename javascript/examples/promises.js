@@ -58,3 +58,5 @@ fetchJoke();
 // - .then() handles successful resolution, while .catch() handles errors.
 // - Async/await allows us to write asynchronous code that looks synchronous, making it more readable.
 // - Try/catch in async functions handles errors in a structured way, similar to .catch() with Promises.
+
+
