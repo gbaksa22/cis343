@@ -1,4 +1,6 @@
 import fetch from 'node-fetch';
+import { printPoke, printItem, printMove, showMenu } from './display.mjs';
+
 
 // Fetch Pokemon data by term
 export async function searchPoke(term) {
