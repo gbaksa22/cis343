@@ -13,6 +13,8 @@ function run() {
     // Use readline to get the user's choice
     // Call prompt with the appropriate search function based on the choice
     searchPoke('pikachu');
+    searchItem('oran-berry');
+
 }
 
 // Start the application
