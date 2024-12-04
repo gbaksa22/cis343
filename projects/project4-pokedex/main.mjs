@@ -12,6 +12,7 @@ function run() {
     // Call showMenu() to display options
     // Use readline to get the user's choice
     // Call prompt with the appropriate search function based on the choice
+    searchPoke('pikachu');
 }
 
 // Start the application
