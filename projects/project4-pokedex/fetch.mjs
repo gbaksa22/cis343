@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { printPoke, printItem, printMove, showMenu } from './display.mjs';
-
+import { run } from './main.mjs';
 
 // Fetch Pokemon data by term
 export async function searchPoke(term) {
@@ -12,7 +12,7 @@ export async function searchPoke(term) {
         
         if (!response.ok) {
             console.log(`Error: Pokemon not found`);
-            return;
+            run();
         }
         
         const json = await response.json();
@@ -21,6 +21,7 @@ export async function searchPoke(term) {
     } catch (error) {
         console.log("Failed to fetch Pokemon data");
     }
+    run();
 }
 
 // Fetch item data by term
@@ -33,7 +34,7 @@ export async function searchItem(term) {
         
         if (!response.ok) {
             console.log(`Error: Item not found`);
-            return;
+            run();
         }
         
         const json = await response.json();
@@ -42,6 +43,7 @@ export async function searchItem(term) {
     } catch (error) {
         console.log("Failed to fetch Item data");
     }
+    run();
 }
 
 // Fetch move data by term
@@ -54,7 +56,7 @@ export async function searchMove(term) {
         
         if (!response.ok) {
             console.log(`Error: Move not found`);
-            return;
+            run();
         }
         
         const json = await response.json();
@@ -63,4 +65,5 @@ export async function searchMove(term) {
     } catch (error) {
         console.log("Failed to fetch Move data");
     }
+    run();
 }
