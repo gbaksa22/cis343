@@ -2,11 +2,21 @@
 export function printPoke(json) {
     // Format and print the Pokemon data (name, weight, height, base experience, moves)
     // Function to display Pokémon data
-    console.log("Pokemon Data:");
+    console.log("==== Pokemon Data ====");
     console.log(`Name: ${json.name}`);
     console.log(`Weight: ${json.weight}`);
     console.log(`Height: ${json.height}`);
+    console.log(`Base Experience: ${json.base_experience}`);
+    console.log(`Moves:`);
+    
+    // Prints the name of each move
+    for (let move of json.moves) {
+        console.log(`- ${move.move.name}`);
+    }
+
+    console.log("======================\n");
 }
+
 // Display item data neatly
 // An item is an object in the games that the player can pick up, store in their bag, and use in various ways.
 // Items serve different purposes like healing, powering up Pokémon, catching Pokémon, or unlocking new areas.
@@ -66,14 +76,22 @@ export function printItem(json) {
     console.log("======================\n");
 }
 
-
-
 // Display move data neatly
 export function printMove(json) {
     // Format and print the move data in a clean way
+    console.log("===== Move Data ======");
+    console.log(`Name: ${json.name}`);
+    console.log(`Accuracy: ${json.accuracy}`);
+    console.log(`Effect Chance: ${json.effect_chance}`);
+    console.log(`PP: ${json.pp}`);
+    console.log(`Priority: ${json.priority}`);
+    console.log(`Power: ${json.power}`);
+    console.log(`Type: ${json.type.name}`);
+    console.log("======================\n");
 }
 
 // Show the menu options to the user
 export function showMenu() {
     // Display available options for searching Pokemon, items, and moves
+    console.log(`==== Pokedex Menu ====\n1. Search for a Pokemon\n2. Search for an Item\n3. Search for a Move\n4. Exit\n====================`);
 }
