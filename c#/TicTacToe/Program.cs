@@ -1,107 +1,28 @@
-﻿// See https://aka.ms/new-console-template for more information
 using System;
 
 class Program
 {
-    static char[,] board = {
-        { '1', '2', '3' },
-        { '4', '5', '6' },
-        { '7', '8', '9' }
-    };
-
-    static char currentPlayer = 'X';
-
     static void Main()
     {
-        int turn = 0;
-        bool gameRunning = true;
-
-        while (gameRunning && turn < 9)
+        Console.WriteLine("Welcome to Tic Tac Toe!");
+        Console.WriteLine("Select number of players (0 = NPC vs NPC, 1 = User vs NPC, 2 = User vs User): ");
+        
+        int playerCount;
+        while (!int.TryParse(Console.ReadLine(), out playerCount) || playerCount < 0 || playerCount > 2)
         {
-            Console.Clear();
-            DisplayBoard();
-            Console.WriteLine($"Player {currentPlayer}, choose your move (1-9): ");
-            
-            string input = Console.ReadLine();
-            if (int.TryParse(input, out int move) && move >= 1 && move <= 9)
-            {
-                if (PlaceMarker(move))
-                {
-                    if (CheckWin())
-                    {
-                        Console.Clear();
-                        DisplayBoard();
-                        Console.WriteLine($"Player {currentPlayer} wins!");
-                        gameRunning = false;
-                    }
-                    else
-                    {
-                        SwitchPlayer();
-                        turn++;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid move, try again.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input, try again.");
-            }
+            Console.WriteLine("Invalid input. Please enter 0, 1, or 2: ");
         }
 
-        if (turn == 9 && gameRunning)
+        Player player1 = new Player("Player 1", 'X', playerCount == 0);
+        Player player2 = playerCount switch
         {
-            Console.Clear();
-            DisplayBoard();
-            Console.WriteLine("It's a draw!");
-        }
-    }
+            0 => new Player("Player 2", 'O', true),
+            1 => new Player("NPC", 'O', true),
+            2 => new Player("Player 2", 'O', false),
+            _ => throw new NotImplementedException(),
+        };
 
-    static void DisplayBoard()
-    {
-        Console.WriteLine("-------------");
-        for (int i = 0; i < 3; i++)
-        {
-            Console.WriteLine($"| {board[i, 0]} | {board[i, 1]} | {board[i, 2]} |");
-            Console.WriteLine("-------------");
-        }
-    }
-
-    static bool PlaceMarker(int move)
-    {
-        int row = (move - 1) / 3;
-        int col = (move - 1) % 3;
-
-        if (board[row, col] != 'X' && board[row, col] != 'O')
-        {
-            board[row, col] = currentPlayer;
-            return true;
-        }
-        return false;
-    }
-
-    static void SwitchPlayer()
-    {
-        currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
-    }
-
-    static bool CheckWin()
-    {
-        // Check rows and columns
-        for (int i = 0; i < 3; i++)
-        {
-            if ((board[i, 0] == currentPlayer && board[i, 1] == currentPlayer && board[i, 2] == currentPlayer) ||
-                (board[0, i] == currentPlayer && board[1, i] == currentPlayer && board[2, i] == currentPlayer))
-                return true;
-        }
-
-        // Check diagonals
-        if ((board[0, 0] == currentPlayer && board[1, 1] == currentPlayer && board[2, 2] == currentPlayer) ||
-            (board[0, 2] == currentPlayer && board[1, 1] == currentPlayer && board[2, 0] == currentPlayer))
-            return true;
-
-        return false;
+        Game game = new Game(player1, player2);
+        game.Start();
     }
 }
